@@ -1,4 +1,4 @@
-git --global user.name "bresu"
+git config --global user.name "bresu"
 git add *
 git commit -m "ich bin sick"
-git push -u original master
+git push -u origin master
