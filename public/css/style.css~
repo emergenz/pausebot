@@ -1,0 +1,57 @@
+body{
+    background-color: black;
+    scroll-snap-type: y mandatory;
+}
+fieldset{
+    border: none;
+}
+
+.heading_text{
+    font-size: 40px;
+    font-family: "Neue Helvetica", Arial,sans-serif;
+    color: #ffffff;
+    text-align: left;
+
+}
+
+#transition{
+    animation-name: transitioner;
+    animation-duration: 1.7s;
+    transition: opacity 1;
+}
+
+section {
+    padding-top: 30px;
+    padding-left: 10px;
+    height: 100vh;
+    scroll-snap-align: start;
+}
+
+@keyframes transitioner {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes transitioner {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes transitioner {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes transitioner {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes transitioner {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

@@ -1,0 +1,155 @@
+body{
+    font-family: 'Helvetica Neue',Arial, sans-serif;
+    background-color: black;
+    scroll-snap-type: y mandatory;
+}
+fieldset{
+    border: none;
+}
+.heading-text-1{
+    font-size: 5.0vh;
+    font-family: "Helvetica Neue", Arial,sans-serif;
+    font-weight: 800;
+    color:#fff;
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 4vh;
+    /*line-height: 7vh;*/
+}
+
+.heading-text-2{
+    font-size: 5.2vh;
+    font-family: "Helvetica Neue", Arial,sans-serif;
+    font-weight: 800;
+    color: #fff;
+    margin-left: 5%;
+    margin-top: -5vh;
+    text-shadow: -1.5px 2px 0 #94ebe9,
+        2px -1.5px 0 #E00D50;
+}
+.explain{
+    color: #fff;
+}
+.form-stuff{
+    margin-top: 30%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.pb-input[type=text]{
+    float: right;
+    caret-color: #000;
+    width: 95%;
+    height:2vh;
+    /*margin: 5px,5px;*/
+    padding: 14px 14px;
+    font-size: 1.5vh;
+}
+.pb-input::placeholder{
+    font-family: "Helvetica Neue",Arial,sans-serif;
+    font-size: 1.5vh;
+    font-weight: 500;
+    color: #9c9c9c
+}
+.pb-input:focus{
+     outline: none;
+}
+.pb-button{
+    float:right;
+    margin-top: 1vh;
+    /*margin: 3px,3px ;*/
+    padding-top: 30px;
+    padding: 15px 32px;
+    border: none;
+    background-color: #E00D50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2vh;
+    font-weight: 300;
+}
+.pb-button:hover{
+    background-color: #ffffff;
+    box-shadow: 2px -1px 0 #94ebe9,
+        -1px 2px 0 #E00D50;
+    transition: 0.6s;
+    color: #000;
+}
+.pb-button:focus{
+     outline: none;
+ }
+footer{
+    text-align: center;
+    color: #fff;
+}
+.footer-text {
+    position: fixed;
+    width: 100%;
+    left:0;
+    font-family: "Helvetica Neue",Helvetica,sans-serif;
+    font-weight: bold;
+    font-size: 1.2vh;
+    display: inline-block;
+    bottom:4vh;
+}
+.footer-links{
+    position: fixed;
+    width: 100%;
+    left:0;
+    display: inline-block;
+    bottom:2vh;
+}
+.footer-links a{
+    font-family: "Helvetica Neue",Helvetica,sans-serif;
+    text-decoration: none;
+    font-size: 1.5vh;
+    font-weight: bold;
+    color: #E00D50;
+    padding: 17px;
+}
+.footer-links a:hover{
+    color:#ffffff;
+    text-shadow: -1px 1px 0 #94ebe9,
+        1px -1px 0 #E00D50;
+    transition: 0.6s;
+}
+#transition{
+    animation-name: transitioner;
+    animation-duration: 1.7s;
+    transition: opacity 1;
+}
+section {
+    padding-top: 30px;
+    padding-left: 10px;
+    height: 100vh;
+    scroll-snap-align: start;
+}
+@keyframes transitioner {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Firefox < 16 */
+@-moz-keyframes transitioner {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes transitioner {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Internet Explorer */
+@-ms-keyframes transitioner {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Opera < 12.1 */
+@-o-keyframes transitioner {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/*
+Tik Tok Colors:
+#E00D50 pink
+#94ebe9 turquoise
+*/
