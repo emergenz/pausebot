@@ -32,11 +32,15 @@ fieldset{
     text-shadow: -1.5px 2px 0 #94ebe9,
         2px -1.5px 0 #E00D50;
 }
-.explain{
+.xplain-box ol li{
+    line-height: 3vh;
     color: #fff;
+    width:100%;
+    position: absolute;
+    top:40vh;
 }
 .form-stuff{
-    margin-top: 30%;
+    margin-top: 40%;
     margin-right: 5%;
     margin-left: 5%;
 }
