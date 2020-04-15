@@ -33,12 +33,19 @@ function finder(link,callback){
     });
 }
 
-function getScreenshot(inputfile, tiktokId){
+function getNewLink(tiktokId){
+    return "https://www.tiktok.com/@tiktok/video/" + tiktokId;
+}
 
+function getVideo(inputfile, tiktokId){
     systemSync('tiktok-scraper video ' + link);
+}
 
+function compressVideo(inputfile, tiktokId){
     systemSync("ffmpeg -y -i " + inputfile + " -crf 49 -vf scale=iw/2:ih/2,crop=iw:ih*.824:0:ih*.09,hue=s=0 -an '"+ tiktokId+"output.mp4'");
+}
 
+function getTimestamps(inputfile, tiktokId){
     systemSync(`ffmpeg -i "`+ tiktokId +`output.mp4" -filter:v "select='gt(scene,0.4)',showinfo" -f null - 2> ffout` + tiktokId +".txt");
 
     systemSync("grep showinfo ffout" + tiktokId + ".txt | grep \'pts_time:[0-9.]*\' -o | grep \'[0-9.]*\' -o > "+ tiktokId +"timestamps.txt");
@@ -70,22 +77,26 @@ function getScreenshot(inputfile, tiktokId){
         console.log(timestamps[lowest_diff_position]);
         var new_timestamp = timestamps[lowest_diff_position]+ (timestamps[lowest_diff_position + 1] - timestamps[lowest_diff_position])/2;
         console.log(new_timestamp);
+        return new_timestamp;
     } else if(timestamps.length == 1){
         var lowest_diff_position = 0;
         var new_timestamp = timestamps[0];
+        return new_timestamp;
     } else {
         console.log("Error: No timestamps found")
     }
+}
 
+function getScreenshot(inputfile, tiktokId){
+    getVideo(inputfile, tiktokId);
+
+    compressVideo(inputfile, tiktokId);
+
+    new_timestamp = getTimestamps(inputfile, tiktokId);
 
     systemSync("ffmpeg -y -ss " + new_timestamp.toString() + " -i " + inputfile +" -vframes 1 -q:v 2 " +tiktokId+ ".jpg");
 
 }
-
-function getVideo(inputfile, tiktokId){
-    systemSync('tiktok-scraper video ' + link);
-}
-
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -96,6 +107,7 @@ app.get('/', function (req, res) {
     res.render('index');
     systemSync("rm -f *.jpg");
     systemSync("rm -f *.mp4");
+    systemSync("rm -f *.txt");
 })
 
 app.get('/contact/', function (req, res) {
@@ -124,8 +136,8 @@ app.post('/', function (req, res) {
     link = req.body.link;
     
     if(link.includes("/video/")){
-        var tiktokId = link.match(patt)[1];
         console.log("JO INCLUDES VIDEO");
+        var tiktokId = link.match(patt)[1];
         var inputfile = tiktokId + ".mp4";
         link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
         try {
@@ -136,14 +148,10 @@ app.post('/', function (req, res) {
         console.log(link);
         //res.render('index');
         res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
-        systemSync("rm " + inputfile);
-        systemSync("rm "+ tiktokId +"output.mp4");
-        systemSync("rm ffout" + tiktokId + ".txt");
-        systemSync("rm " + tiktokId + "timestamps.txt");
-        
+                
     } else if(/\d{10}/.test(link)===true){
-        var tiktokId = link.match(patt)[1];
         console.log("JO INCLUDES NUMBER");
+        var tiktokId = link.match(patt)[1];
         var inputfile = tiktokId + ".mp4";
         link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
         try {
@@ -153,10 +161,6 @@ app.post('/', function (req, res) {
         }
         console.log(link);
         res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
-        systemSync("rm " + inputfile);
-        systemSync("rm "+ tiktokId +"output.mp4");
-        systemSync("rm ffout" + tiktokId + ".txt");
-        systemSync("rm " + tiktokId + "timestamps.txt");
         
     } else {
         try {
@@ -172,10 +176,7 @@ app.post('/', function (req, res) {
             }
             console.log(link);
             res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
-            systemSync("rm " + inputfile);
-            systemSync("rm "+ tiktokId +"output.mp4");
-            systemSync("rm ffout" + tiktokId + ".txt");
-            systemSync("rm " + tiktokId + "timestamps.txt");
+
         });
         } catch (error) {
             res.render('errorhandling');
@@ -189,7 +190,7 @@ app.post('/download/', function (req, res) {
         var tiktokId = link.match(patt)[1];
         console.log("JO INCLUDES VIDEO");
         var inputfile = tiktokId + ".mp4";
-        link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
+        link = getNewLink();
         try {
         getVideo(inputfile, tiktokId);
         } catch (error) {
@@ -203,7 +204,7 @@ app.post('/download/', function (req, res) {
         var tiktokId = link.match(patt)[1];
         console.log("JO INCLUDES NUMBER");
         var inputfile = tiktokId + ".mp4";
-        link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
+        link = getNewLink();
         try {
         getVideo(inputfile, tiktokId);
         } catch (error) {
@@ -218,7 +219,7 @@ app.post('/download/', function (req, res) {
             console.log("JO NO NUMBER");
             var tiktokId = results;
             var inputfile = tiktokId + ".mp4";
-            link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
+            link = getNewLink();
             getVideo(inputfile, tiktokId);
             console.log(link);
             res.download(inputfile);
