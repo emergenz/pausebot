@@ -165,7 +165,11 @@ app.post('/', function (req, res) {
             var tiktokId = results;
             var inputfile = tiktokId + ".mp4";
             link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
+            try {
             getScreenshot(inputfile, tiktokId);
+            } catch (error) {
+                res.render('errorhandling');
+            }
             console.log(link);
             res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
             systemSync("rm " + inputfile);
