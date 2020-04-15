@@ -22,5 +22,5 @@ html
                         a(href='/download/') Downloader
                         a(href='/contact/') Contact
             div(class='footer-text')
-                p Buy us a &#127866;: https://www.paypal.me/pausebot
+                p Made with <3 by Lele & Franz
 
