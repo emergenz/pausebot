@@ -100,7 +100,7 @@ function getScreenshot(inputfile, tiktokId){
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true}));
-app.set('view engine', 'ejs')
+app.set('view engine', 'pug')
 
 app.get('/', function (req, res) {
     console.log("GET REQUEST");
