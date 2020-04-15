@@ -1,29 +1,34 @@
 body{
-    font-family: 'Helvetica Neue',Arial, sans-serif;
+    width:99%%;
+    font-family: 'Gothic A1', sans-serif;
     background-color: black;
     scroll-snap-type: y mandatory;
 }
 fieldset{
     border: none;
 }
+
+.heading-box{
+    position: absolute;
+    top: 7vh;
+    left: 8vw;
+    text-align: right;
+    line-height: 2vh;
+}
+
 .heading-text-1{
-    font-size: 5.0vh;
-    font-family: "Helvetica Neue", Arial,sans-serif;
-    font-weight: 800;
+    font-size: 4.5vh;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 900;
     color:#fff;
-    text-align: left;
-    margin-left: 5%;
-    margin-top: 4vh;
-    /*line-height: 7vh;*/
+    /*margin-top: 4vh;*/
 }
 
 .heading-text-2{
-    font-size: 5.2vh;
-    font-family: "Helvetica Neue", Arial,sans-serif;
-    font-weight: 800;
-    color: #fff;
-    margin-left: 5%;
-    margin-top: -5vh;
+    font-size: 5vh;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 900;
+    color: #000;
     text-shadow: -1.5px 2px 0 #94ebe9,
         2px -1.5px 0 #E00D50;
 }
@@ -41,11 +46,11 @@ fieldset{
     width: 95%;
     height:2vh;
     /*margin: 5px,5px;*/
-    padding: 14px 14px;
+    padding: 1.7vh 14px;
     font-size: 1.5vh;
 }
 .pb-input::placeholder{
-    font-family: "Helvetica Neue",Arial,sans-serif;
+    font-family: 'Gothic A1', sans-serif;
     font-size: 1.5vh;
     font-weight: 500;
     color: #9c9c9c
@@ -54,19 +59,20 @@ fieldset{
      outline: none;
 }
 .pb-button{
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 300;
+    font-size: 2.2vh;
+    text-decoration: none;
+    text-align: center;
     float:right;
     margin-top: 1vh;
     /*margin: 3px,3px ;*/
-    padding-top: 30px;
-    padding: 15px 32px;
+    padding: 1.5vh 4vh;
     border: none;
     background-color: #E00D50;
     color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 2vh;
-    font-weight: 300;
 }
+
 .pb-button:hover{
     background-color: #ffffff;
     box-shadow: 2px -1px 0 #94ebe9,
@@ -85,8 +91,8 @@ footer{
     position: fixed;
     width: 100%;
     left:0;
-    font-family: "Helvetica Neue",Helvetica,sans-serif;
-    font-weight: bold;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 400;
     font-size: 1.2vh;
     display: inline-block;
     bottom:4vh;
@@ -99,10 +105,10 @@ footer{
     bottom:2vh;
 }
 .footer-links a{
-    font-family: "Helvetica Neue",Helvetica,sans-serif;
+    font-family: 'Gothic A1', sans-serif;
     text-decoration: none;
     font-size: 1.5vh;
-    font-weight: bold;
+    font-weight: 800;
     color: #E00D50;
     padding: 17px;
 }
