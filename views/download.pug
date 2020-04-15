@@ -33,6 +33,7 @@ html
                     form(action='/download/', method='post')
                         input(name='downloadlink', type='text', class='pb-input', placeholder='E.g: https://vm.tiktok.com/xxxxxx', required)
                         input(type='submit', class='pb-button', value='Get Video')
+
         footer
             nav
                 div
@@ -41,5 +42,5 @@ html
                         a(href='/download/') Downloader
                         a(href='/contact/') Contact
             div(class='footer-text')
-                p Buy us a &#127866;: https://www.paypal.me/pausebot
-
+                span Buy us a &#127866; 
+                    a(href='https://www.paypal.me/pausebot') here

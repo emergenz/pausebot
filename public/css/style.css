@@ -8,7 +8,12 @@ fieldset{
     border: none;
 }
 
+.container{
+    position: relative;
+}
+
 .heading-box{
+    height: 20vh;
     position: absolute;
     top: 7vh;
     left: 8vw;
@@ -33,9 +38,13 @@ fieldset{
         2px -1.5px 0 #E00D50;
 }
 .xplain-box{
+    position: absolute;
+    margin-top: inherit;
+    text-align: center;
     color: #fff;
-    width:100%;
-    top:40vh;
+    font-weight: 300;
+    list-style: inside;
+    line-height: 3vh;
 }
 .form-stuff{
     margin-top: 40%;
@@ -88,17 +97,22 @@ fieldset{
 footer{
     text-align: center;
     color: #fff;
-}
-.footer-text {
-    position: fixed;
     width: 100%;
-    left:0;
+}
+.footer-text{
+    display: block;
+    position: fixed;
+    left: 40vw;
+    bottom:5.3vh;
     font-family: 'Gothic A1', sans-serif;
     font-weight: 400;
     font-size: 1.2vh;
-    display: inline-block;
-    bottom:4vh;
 }
+.footer-text a{
+    text-decoration: none;
+    color: #94ebe9;
+}
+
 .footer-links{
     position: fixed;
     width: 100%;
