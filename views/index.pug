@@ -4,13 +4,13 @@ html
         meta(charset='utf-8')
         title Pausebot - just in time
         link(rel='stylesheet', type='text/css', href="/css/style.css")
-        link(href='https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;500;700;800;900&display=swap', rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800;900&display=swap', rel='stylesheet')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         meta(name='description', content="Pausebot - Your TikTok Pausebot and Downloader")
         meta(name='keywords', content='TikTok, Tik Tok, Pausebot, CEO of pausing, TikTok downloader, mp4 Tik Tok downloader')
         meta(name='author', content='Lele & Franz')
         //- Google
-        script(data-ad-client='ca-pub-7114161687340232", async, src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+        <script data-ad-client="ca-pub-9895481935799934" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Facebook -->
         meta(property='og:type', content='website')
         meta(property='og:locale', content='en_US')
@@ -25,31 +25,32 @@ html
         meta(name='twitter:description', content='Your online TikTok Pausebot & Downloader')
     body
         div(class='container')
-            section
-                div(id='transition', class='heading-box')
-                    h1(class='heading-text-1') Welcome to
-                    h1(class='heading-text-2') Pausebot
+            div(class='grid-item-1')
+                div(class='heading-box')
+                    h1(class='heading-1') Welcome to
+                    h1(class='heading-2') Pausebot
+            div(class='item-2')
+                div(id='rounded', class='list-content')
+                    h2(class='list-heading') How it works
+                    div(class='list-styling')
+                        p Sroll down
+                        p Paste link
+                        p Wait
+                        p Enjoy!
 
-                div(class='xplain-box')
-                    h2 How it works:
-                    div(class="xplain-list")
-                        ol
-                            li Scroll down
-                            li Paste TikTok-Link
-                            li Wait
-                            li Enjoy!
-            section
+            div(class='item-input')
                 fieldset(class='form-stuff')
                     form(action='/', method='post')
+                        div(class='form-right')
                         input(name='link', type='text', class='pb-input', placeholder='E.g: https://vm.tiktok.com/xxxxxx', required)
                         input(type='submit', class='pb-button', value='Get Photo')
-        footer
-            nav
-                div
-                    div(class='footer-links')
+
+            div(class='item-footer')
+                div(class='footer-links-item')
+                    span(class='footer-links')
                         a(href='/') Home
                         a(href='/download/') Downloader
                         a(href='/contact/') Contact
-            div(class='footer-text')
-                span Buy us a &#127866; 
-                    a(href='https://www.paypal.me/pausebot') here
+                    div(class='footer-sponsor')
+                        span Buy us a &#127866;
+                            a(href='https://www.paypal.me/pausebot') here
