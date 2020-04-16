@@ -33,10 +33,6 @@ function finder(link,callback){
     });
 }
 
-function getNewLink(tiktokId){
-    return "https://www.tiktok.com/@tiktok/video/" + tiktokId;
-}
-
 function getVideo(inputfile, tiktokId){
     systemSync('tiktok-scraper video ' + link);
 }
@@ -104,7 +100,7 @@ app.set('view engine', 'pug')
 
 app.get('/', function (req, res) {
     console.log("GET REQUEST");
-    res.render('index', {title1: 'Welcome to', title2: 'Pausebot', buttonText: 'Get Photo'});
+    res.render('index', {title1: 'Welcome to', title2: 'Pausebot', buttonText: 'Get Photo', actionVar: '/'});
     systemSync("rm -f *.jpg");
     systemSync("rm -f *.mp4");
     systemSync("rm -f *.txt");
@@ -115,7 +111,7 @@ app.get('/contact/', function (req, res) {
 })
 
 app.get('/download/', function(req, res){
-    res.render('index', {title1: '', title2: 'Pausebot-Downloader', buttonText: 'Get Video'});
+    res.render('index', {title1: '', title2: 'Pausebot-Downloader', buttonText: 'Get Video', actionVar: '/download/'});
 })
 
 app.get('/wp-login', function(req, res){
@@ -196,12 +192,12 @@ app.post('/', function (req, res) {
 })
 
 app.post('/download/', function (req, res) {
-    link = req.body.downloadlink;
+    link = req.body.link;
     if(link.includes("/video/")){
         var tiktokId = link.match(patt)[1];
         console.log("JO INCLUDES VIDEO");
         var inputfile = tiktokId + ".mp4";
-        link = getNewLink();
+        link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
         try {
         getVideo(inputfile, tiktokId);
         } catch (error) {
@@ -215,7 +211,7 @@ app.post('/download/', function (req, res) {
         var tiktokId = link.match(patt)[1];
         console.log("JO INCLUDES NUMBER");
         var inputfile = tiktokId + ".mp4";
-        link = getNewLink();
+        link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
         try {
         getVideo(inputfile, tiktokId);
         } catch (error) {
@@ -230,7 +226,7 @@ app.post('/download/', function (req, res) {
             console.log("JO NO NUMBER");
             var tiktokId = results;
             var inputfile = tiktokId + ".mp4";
-            link = getNewLink();
+            link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
             getVideo(inputfile, tiktokId);
             console.log(link);
             res.download(inputfile);
