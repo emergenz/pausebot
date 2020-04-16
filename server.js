@@ -33,10 +33,6 @@ function finder(link,callback){
     });
 }
 
-function getNewLink(tiktokId){
-    return "https://www.tiktok.com/@tiktok/video/" + tiktokId;
-}
-
 function getVideo(inputfile, tiktokId){
     systemSync('tiktok-scraper video ' + link);
 }
@@ -104,18 +100,18 @@ app.set('view engine', 'pug')
 
 app.get('/', function (req, res) {
     console.log("GET REQUEST");
-    res.render('index');
+    res.render('index', {title1: 'Welcome to', title2: 'Pausebot', buttonText: 'Get Photo', actionVar: '/'});
     systemSync("rm -f *.jpg");
     systemSync("rm -f *.mp4");
     systemSync("rm -f *.txt");
 })
 
 app.get('/contact/', function (req, res) {
-    res.render('contact');
+    res.render('contact', {title1: '', title2: 'Contact us'});
 })
 
 app.get('/download/', function(req, res){
-    res.render('download');
+    res.render('index', {title1: '', title2: 'Pausebot-Downloader', buttonText: 'Get Video', actionVar: '/download/'});
 })
 
 app.get('/wp-login', function(req, res){
@@ -143,7 +139,7 @@ app.post('/', function (req, res) {
         try {
         getVideo(inputfile, tiktokId);
         } catch (error){
-            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
+            res.render('errorhandling',{title: 'Error', text: 'Please check if your link is right.'});
         }
         try {
         getScreenshot(inputfile, tiktokId);
@@ -196,12 +192,12 @@ app.post('/', function (req, res) {
 })
 
 app.post('/download/', function (req, res) {
-    link = req.body.downloadlink;
+    link = req.body.link;
     if(link.includes("/video/")){
         var tiktokId = link.match(patt)[1];
         console.log("JO INCLUDES VIDEO");
         var inputfile = tiktokId + ".mp4";
-        link = getNewLink();
+        link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
         try {
         getVideo(inputfile, tiktokId);
         } catch (error) {
@@ -215,7 +211,7 @@ app.post('/download/', function (req, res) {
         var tiktokId = link.match(patt)[1];
         console.log("JO INCLUDES NUMBER");
         var inputfile = tiktokId + ".mp4";
-        link = getNewLink();
+        link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
         try {
         getVideo(inputfile, tiktokId);
         } catch (error) {
@@ -230,7 +226,7 @@ app.post('/download/', function (req, res) {
             console.log("JO NO NUMBER");
             var tiktokId = results;
             var inputfile = tiktokId + ".mp4";
-            link = getNewLink();
+            link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
             getVideo(inputfile, tiktokId);
             console.log(link);
             res.download(inputfile);
@@ -241,7 +237,7 @@ app.post('/download/', function (req, res) {
     }
 })
 app.use(function(req, res, next){
-    res.status(404).render("filenotfound", {title: '404', text: 'Sorry, mate. That site doesn\'t exist.'});
+    res.status(404).render("errorhandling", {title: '404', text: 'Sorry, mate. That site doesn\'t exist.'});
 })
 
 

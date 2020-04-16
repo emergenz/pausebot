@@ -4,21 +4,38 @@ html
         meta(charset='utf-8')
         title= title
         link(rel='stylesheet', type='text/css', href="/css/style.css")
-        link(href='https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;500;700;800;900&display=swap', rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800;900&display=swap', rel='stylesheet')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='description', content="Pausebot - Your TikTok Pausebot and Downloader")
+        meta(name='keywords', content='TikTok, Tik Tok, Pausebot, CEO of pausing, TikTok downloader, mp4 Tik Tok downloader')
+        meta(name='author', content='Lele & Franz')
         //- Google
-        script(data-ad-client='ca-pub-7114161687340232", async, src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+        script(data-ad-client="ca-pub-9895481935799934", async, src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+        <!-- Facebook -->
+        meta(property='og:type', content='website')
+        meta(property='og:locale', content='en_US')
+        meta(property='og:title', content='Pausebot - just in time')
+        meta(property='og:description', content='Your online TikTok Pausebot & Downloader')
+        meta(property='og:url', content='https://pausebot.com')
+        <!-- Twitter -->
+        meta(name='twitter:card', content='summary_large_image')
+        meta(name='twitter:url', content='https://pausebot.com')
+        meta(name='twitter:title', content='Pausebot - just in time')
+        meta(name='twitter:description', content='Your online TikTok Pausebot & Downloader')
     body
         div(class='container')
-            section
-                div(id='transition', class='heading-box')
-                    h1(class='heading-text-1')= text
-        footer
-            nav
-                div
-                    div(class='footer-links')
+            div(class='grid-item-1')
+                div(class='heading-box')
+                    h1(class='heading-1')= text
+                    h1(class='heading-2')= text2
+            div(class='item-footer')
+                div(class='footer-links-item')
+                    span(class='footer-links')
                         a(href='/') Home
                         a(href='/download/') Downloader
                         a(href='/contact/') Contact
             div(class='footer-text')
                 p Buy us a &#127866;: https://www.paypal.me/pausebot
+                    div(class='footer-sponsor')
+                        span Buy us a &#127866;
+                            a(href='https://www.paypal.me/pausebot') here
