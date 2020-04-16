@@ -78,6 +78,9 @@ body{
      outline: none;
 }
 .pb-button{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     float:right;
     font-family: 'Gothic A1', sans-serif;
     font-weight: 300;
@@ -138,7 +141,7 @@ body{
 }
 .footer-links-item {2
     text-align: center;
-    margin-bottom: 1.3vh;
+    margin-bottom: 4vh;
 }
 
 .footer-links a{
@@ -146,13 +149,18 @@ body{
     font-size: 1.5vh;
     font-weight: 800;
     color: #E00D50;
-    padding: 17px;
+    padding: 20px;
 }
+
 .footer-sponsor span{
     color:#fff;
+    font-size: 1.3vh;
+    position: absolute;
+    right: 3vw;
 }
 .footer-sponsor span a{
     color:#fff;
+    font-size: 1.3vh;
     text-decoration: underline;
     text-decoration-color: #94ebe9;
 }
