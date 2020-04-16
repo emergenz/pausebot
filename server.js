@@ -104,18 +104,18 @@ app.set('view engine', 'pug')
 
 app.get('/', function (req, res) {
     console.log("GET REQUEST");
-    res.render('index');
+    res.render('index', {title1: 'Welcome to', title2: 'Pausebot', buttonText: 'Get Photo'});
     systemSync("rm -f *.jpg");
     systemSync("rm -f *.mp4");
     systemSync("rm -f *.txt");
 })
 
 app.get('/contact/', function (req, res) {
-    res.render('contact');
+    res.render('contact', {title1: '', title2: 'Contact us'});
 })
 
 app.get('/download/', function(req, res){
-    res.render('download');
+    res.render('index', {title1: '', title2: 'Pausebot-Downloader', buttonText: 'Get Video'});
 })
 
 app.get('/wp-login', function(req, res){
@@ -143,7 +143,7 @@ app.post('/', function (req, res) {
         try {
         getVideo(inputfile, tiktokId);
         } catch (error){
-            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
+            res.render('errorhandling',{title: 'Error', text: 'Please check if your link is right.'});
         }
         try {
         getScreenshot(inputfile, tiktokId);
@@ -241,7 +241,7 @@ app.post('/download/', function (req, res) {
     }
 })
 app.use(function(req, res, next){
-    res.status(404).render("filenotfound", {title: '404', text: 'Sorry, mate. That site doesn\'t exist.'});
+    res.status(404).render("errorhandling", {title: '404', text: 'Sorry, mate. That site doesn\'t exist.'});
 })
 
 

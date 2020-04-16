@@ -27,8 +27,8 @@ html
         div(class='container')
             div(class='grid-item-1')
                 div(class='heading-box')
-                    h1(class='heading-1') Welcome to
-                    h1(class='heading-2') Pausebot
+                    h1(class='heading-1')= title1
+                    h1(class='heading-2')= title2
             div(class='item-2')
                 div(id='rounded', class='list-content')
                     h2(class='list-heading') How it works
@@ -43,7 +43,7 @@ html
                     form(action='/', method='post')
                         div(class='form-right')
                         input(name='link', type='text', class='pb-input', placeholder='E.g: https://vm.tiktok.com/xxxxxx', required)
-                        input(type='submit', class='pb-button', value='Get Photo')
+                        input(type='submit', class='pb-button', value= buttonText)
 
             div(class='item-footer')
                 div(class='footer-links-item')
