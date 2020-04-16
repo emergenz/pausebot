@@ -43,7 +43,7 @@ body{
 
 .item-input{
     display:flex;
-    grid-area: 2 / 1 / 3 / 5;
+    grid-area: 3 / 1 / 4 / 5;
     justify-content:center;
     align-items: center;
     width:100vw;
@@ -103,13 +103,12 @@ body{
 
 .item-2{
     display:flex;
-    grid-area: 3 / 2 / 4 / 4;
+    grid-area: 2 / 2 / 3 / 4;
     color: #fff;
     justify-content: center;
 }
 
 .list-content{
-    margin-top: 5vh;
     text-align: center;
 }
 #rounded{
@@ -118,7 +117,7 @@ body{
     padding: 25px;
     width:50vw;
     height: 17vh;
-    box-shadow: 3px 3px 5px #94ebe9;
+    /*box-shadow: 3px 3px #94ebe9;*/
 }
 .list-heading{
     margin-top: 0.1vh;
