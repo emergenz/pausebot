@@ -88,7 +88,7 @@ function getTimestamps(inputfile, tiktokId){
 }
 
 function getScreenshot(inputfile, tiktokId){
-    getVideo(inputfile, tiktokId);
+
 
     compressVideo(inputfile, tiktokId);
 
@@ -141,9 +141,14 @@ app.post('/', function (req, res) {
         var inputfile = tiktokId + ".mp4";
         link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
         try {
+        getVideo(inputfile, tiktokId);
+        } catch (error){
+            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
+        }
+        try {
         getScreenshot(inputfile, tiktokId);
         } catch (error) {
-            res.render('errorhandling');
+            res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
         }
         console.log(link);
         //res.render('index');
@@ -155,31 +160,37 @@ app.post('/', function (req, res) {
         var inputfile = tiktokId + ".mp4";
         link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
         try {
+        getVideo(inputfile, tiktokId);
+        } catch (error){
+            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
+        }
+        try {
         getScreenshot(inputfile, tiktokId);
         } catch (error) {
-            res.render('errorhandling');
+            res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
         }
         console.log(link);
         res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
         
     } else {
         try {
-        finder(link,function(results){
-            console.log("JO NO NUMBER");
-            var tiktokId = results;
-            var inputfile = tiktokId + ".mp4";
-            link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
-            try {
-            getScreenshot(inputfile, tiktokId);
-            } catch (error) {
-                res.render('errorhandling');
-            }
-            console.log(link);
-            res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
-
-        });
+            finder(link,function(results){
+                console.log("JO NO NUMBER");
+                var tiktokId = results;
+                var inputfile = tiktokId + ".mp4";
+                link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
+                getVideo(inputfile, tiktokId);
+                try {
+                    getScreenshot(inputfile, tiktokId);
+                } catch (error){
+                    res.render('errorhandling',{tite: 'Error', text: 'Your link is right? There\'s something to pause?'});
+                }
+                console.log(link);
+                res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
+                
+            });
         } catch (error) {
-            res.render('errorhandling');
+            res.render('errorhandling',{tite: 'Error', text: 'Your link is right? There\'s something to pause?'});
         }
     }
 })
@@ -194,7 +205,7 @@ app.post('/download/', function (req, res) {
         try {
         getVideo(inputfile, tiktokId);
         } catch (error) {
-            res.render('errorhandling');
+            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
         }
         console.log(link);
         //res.render('index');
@@ -208,7 +219,7 @@ app.post('/download/', function (req, res) {
         try {
         getVideo(inputfile, tiktokId);
         } catch (error) {
-            res.render('errorhandling');
+            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
         }
         console.log(link);
         res.download(inputfile);
@@ -225,12 +236,12 @@ app.post('/download/', function (req, res) {
             res.download(inputfile);
         });
         } catch (error) {
-            res.render('errorhandling');
+            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
         }
     }
 })
 app.use(function(req, res, next){
-    res.status(404).render("filenotfound");
+    res.status(404).render("filenotfound", {title: '404', text: 'Sorry, mate. That site doesn\'t exist.'});
 })
 
 
