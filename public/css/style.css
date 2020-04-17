@@ -137,17 +137,25 @@ body{
     justify-content: center;
     text-align: center;
 }
-.footer-links-item {2
+.footer-links-item {
     text-align: center;
     margin-bottom: 4vh;
 }
 
 .footer-links a{
+    background-color: #123;
     text-decoration: none;
     font-size: 1.5vh;
     font-weight: 800;
     color: #E00D50;
-    padding: 20px;
+    padding:4vh 4vw;
+}
+
+.footer-links a:hover{
+    color:#ffffff;
+    text-shadow: -1px 1px 0 #94ebe9,
+        1px -1px 0 #E00D50;
+    transition: 0.6s;
 }
 
 .footer-sponsor span{

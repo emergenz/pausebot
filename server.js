@@ -100,22 +100,22 @@ app.set('view engine', 'pug')
 
 app.get('/', function (req, res) {
     console.log("GET REQUEST");
-    res.render('index', {pageTitle: 'Pausebot - just in time', pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader', ogTitle: 'Pausebot - just in time', ogDescription: 'Your online TikTok Pausebot & Downloader', twitterTitle: 'Pausebot - just in time', twitterDescription: 'Your online TikTok Pausebot & Downloader', title1: 'Your TikTok', title2: 'Pausebot', buttonText: 'Get Photo', actionVar: '/', textBox: '#'});
+    res.render('index', {pageTitle: 'Pausebot - just in time', pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader', ogTitle: 'Pausebot - We pause your TikToks - just in time', ogDescription: 'Your online TikTok Pausebot & Downloader', twitterTitle: 'Pausebot - just in time', twitterDescription: 'Your online TikTok Pausebot & Downloader', title1: 'Your TikTok', title2: 'Pausebot', buttonText: 'Get Photo', actionVar: '/', textBox: '#'});
     systemSync("rm -f *.jpg");
     systemSync("rm -f *.mp4");
     systemSync("rm -f *.txt");
 })
 
 app.get('/contact/', function (req, res) {
-    res.render('contact', {pageTitle: 'Contact', pageDescription: '#', ogTitle: '#', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: '', title2: 'Contact us', textBox: '#'});
+    res.render('contact', {pageTitle: 'Contact', pageDescription: 'Contact pausebot.com', ogTitle: 'Contact the pausebot.com Team!', ogDescription: 'pausebot.com help and contact', twitterTitle: 'pausebot.com contact page', twitterDescription: 'Contact the pausebot.com Team here!', title1: '', title2: 'Contact us', textBox: '#'});
 })
 
 app.get('/privacy/', function(req, res) {
-    res.render('contact', {pageTitle: 'Privacy', pageDescription: '#', ogTitle: '#', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: '', title2: 'Privacy', textBox: '#'});
+    res.render('contact', {pageTitle: 'Privacy', pageDescription: 'pausebot.com privacy rules ', ogTitle: 'Pausebot.com Privacy', ogDescription: 'Privacy page and rules of pausebot.com', twitterTitle: 'pausebot.com privacy page', twitterDescription: 'Privacy on pausebot.com', title1: '', title2: 'Privacy', textBox: '#'});
 })
 
 app.get('/download/', function(req, res){
-    res.render('index', {pageTitle: '#', pageDescription: '#', ogTitle: '#', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: 'Your TikTok', title2: 'Downloader', buttonText: 'Get Video', actionVar: '/download/', textBox: '#'});
+    res.render('index', {pageTitle: 'TikTok Downloader', pageDescription: '#', ogTitle: 'TikTok downloader by pausebot.com', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: 'Your TikTok', title2: 'Downloader', buttonText: 'Get Video', actionVar: '/download/', textBox: '#'});
 })
 
 app.get('/wp-login', function(req, res){
@@ -134,7 +134,7 @@ app.get('/sitemap.xml', function(req, res){
 app.post('/', function (req, res) {
 
     link = req.body.link;
-    
+
     if(link.includes("/video/")){
         console.log("JO INCLUDES VIDEO");
         var tiktokId = link.match(patt)[1];
@@ -153,7 +153,7 @@ app.post('/', function (req, res) {
         console.log(link);
         //res.render('index');
         res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
-                
+
     } else if(/\d{10}/.test(link)===true){
         console.log("JO INCLUDES NUMBER");
         var tiktokId = link.match(patt)[1];
@@ -171,7 +171,7 @@ app.post('/', function (req, res) {
         }
         console.log(link);
         res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
-        
+
     } else {
         try {
             finder(link,function(results){
@@ -187,7 +187,7 @@ app.post('/', function (req, res) {
                 }
                 console.log(link);
                 res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
-                
+
             });
         } catch (error) {
             res.render('errorhandling',{tite: 'Error', text: 'Your link is right? There\'s something to pause?'});
@@ -210,7 +210,7 @@ app.post('/download/', function (req, res) {
         console.log(link);
         //res.render('index');
         res.download(inputfile);
-   
+
     } else if(/\d{10}/.test(link)===true){
         var tiktokId = link.match(patt)[1];
         console.log("JO INCLUDES NUMBER");
@@ -223,7 +223,7 @@ app.post('/download/', function (req, res) {
         }
         console.log(link);
         res.download(inputfile);
-        
+
     } else {
         try {
         finder(link,function(results){
@@ -248,4 +248,3 @@ app.use(function(req, res, next){
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 })
-
