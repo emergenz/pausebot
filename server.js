@@ -100,7 +100,7 @@ app.set('view engine', 'pug')
 
 app.get('/', function (req, res) {
     console.log("GET REQUEST");
-    res.render('index', {pageTitle: 'Pausebot - just in time', pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader', ogTitle: 'Pausebot - We pause your TikToks - just in time', ogDescription: 'Your online TikTok Pausebot & Downloader', twitterTitle: 'Pausebot - just in time', twitterDescription: 'Your online TikTok Pausebot & Downloader', title1: 'Your TikTok', title2: 'Pausebot', buttonText: 'Get Photo', actionVar: '/', textBox: '#'});
+    res.render('index', {pageTitle: 'Pausebot - just in time', pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader', keyWords: 'TikTok pausebot, Tik Tok, Pausebot, pausebot.com, tiktok pause, TikTok downloader, mp4 Tik Tok downloader', ogTitle: 'Pausebot - We pause your TikToks - just in time', ogDescription: 'Your online TikTok Pausebot & Downloader', twitterTitle: 'Pausebot - just in time', twitterDescription: 'Your online TikTok Pausebot & Downloader', title1: 'Your TikTok', title2: 'Pausebot', buttonText: 'Get Photo', actionVar: '/', textBox: '#'});
     systemSync("rm -f *.jpg");
     systemSync("rm -f *.mp4");
     systemSync("rm -f *.txt");
@@ -115,7 +115,7 @@ app.get('/privacy/', function(req, res) {
 })
 
 app.get('/download/', function(req, res){
-    res.render('index', {pageTitle: 'TikTok Downloader', pageDescription: '#', ogTitle: 'TikTok downloader by pausebot.com', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: 'Your TikTok', title2: 'Downloader', buttonText: 'Get Video', actionVar: '/download/', textBox: '#'});
+    res.render('index', {pageTitle: 'TikTok Downloader', pageDescription: '#', keyWords: '#', ogTitle: 'TikTok downloader by pausebot.com', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: 'Your TikTok', title2: 'Downloader', buttonText: 'Get Video', actionVar: '/download/', textBox: '#'});
 })
 
 app.get('/wp-login', function(req, res){
