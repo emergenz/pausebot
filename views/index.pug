@@ -1,12 +1,12 @@
 doctype html
-html
+html(lang='en')
     head
         meta(charset='utf-8')
-        title Pausebot - just in time
+        title= pageTitle
         link(rel='stylesheet', type='text/css', href="/css/style.css")
         link(href='https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800;900&display=swap', rel='stylesheet')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        meta(name='description', content="Pausebot - Your TikTok Pausebot and Downloader")
+        meta(name='description', content= pageDescription)
         meta(name='keywords', content='TikTok, Tik Tok, Pausebot, CEO of pausing, TikTok downloader, mp4 Tik Tok downloader')
         meta(name='author', content='Lele & Franz')
         //- Google
@@ -14,19 +14,19 @@ html
         <!-- Facebook -->
         meta(property='og:type', content='website')
         meta(property='og:locale', content='en_US')
-        meta(property='og:title', content='Pausebot - just in time')
-        meta(property='og:description', content='Your online TikTok Pausebot & Downloader')
+        meta(property='og:title', content= ogTitle)
+        meta(property='og:description', content= ogDescription)
         meta(property='og:url', content='https://pausebot.com')
         <!-- Twitter -->
         meta(name='twitter:card', content='summary_large_image')
         meta(name='twitter:url', content='https://pausebot.com')
-        meta(name='twitter:title', content='Pausebot - just in time')
-        meta(name='twitter:description', content='Your online TikTok Pausebot & Downloader')
+        meta(name='twitter:title', content= twitterTitle)
+        meta(name='twitter:description', content= twitterDescription)
     body
         div(class='container')
             div(class='grid-item-1')
                 div(class='heading-box')
-                    h1(class='heading-1')= title1
+                    h2(class='heading-1')= title1
                     h1(class='heading-2')= title2
             div(class='item-2')
                 div(id='rounded', class='list-content')

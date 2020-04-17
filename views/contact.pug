@@ -1,8 +1,8 @@
 doctype html
-html
+html(lang='en')
     head
         meta(charset='utf-8')
-        title Pausebot - just in time
+        title= pageTitle
         link(rel='stylesheet', type='text/css', href="/css/style.css")
         link(href='https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800;900&display=swap', rel='stylesheet')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
@@ -26,7 +26,7 @@ html
         div(class='container')
             div(class='grid-item-1')
                 div(class='heading-box')
-                    h1(class='heading-1')= title1
+                    h2(class='heading-1')= title1
                     h1(class='heading-2')= title2
             div(class='item-footer')
                 div(class='footer-links-item')
