@@ -100,22 +100,22 @@ app.set('view engine', 'pug')
 
 app.get('/', function (req, res) {
     console.log("GET REQUEST");
-    res.render('index', {pageTitle: 'Pausebot - just in time', pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader', ogTitle: 'Pausebot - just in time', ogDescription: 'Your online TikTok Pausebot & Downloader', twitterTitle: 'Pausebot - just in time', twitterDescription: 'Your online TikTok Pausebot & Downloader', title1: 'Your TikTok', title2: 'Pausebot', buttonText: 'Get Photo', actionVar: '/'});
+    res.render('index', {pageTitle: 'Pausebot - just in time', pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader', ogTitle: 'Pausebot - just in time', ogDescription: 'Your online TikTok Pausebot & Downloader', twitterTitle: 'Pausebot - just in time', twitterDescription: 'Your online TikTok Pausebot & Downloader', title1: 'Your TikTok', title2: 'Pausebot', buttonText: 'Get Photo', actionVar: '/', textBox: '#'});
     systemSync("rm -f *.jpg");
     systemSync("rm -f *.mp4");
     systemSync("rm -f *.txt");
 })
 
 app.get('/contact/', function (req, res) {
-    res.render('contact', {pageTitle: 'Contact', pageDescription: '#', ogTitle: '#', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: '', title2: 'Contact us'});
+    res.render('contact', {pageTitle: 'Contact', pageDescription: '#', ogTitle: '#', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: '', title2: 'Contact us', textBox: '#'});
 })
 
 app.get('/privacy/', function(req, res) {
-    res.render('contact', {pageTitle: 'Privacy', pageDescription: '#', ogTitle: '#', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: '', title2: 'Privacy'});
+    res.render('contact', {pageTitle: 'Privacy', pageDescription: '#', ogTitle: '#', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: '', title2: 'Privacy', textBox: '#'});
 })
 
 app.get('/download/', function(req, res){
-    res.render('index', {pageTitle: '#', pageDescription: '#', ogTitle: '#', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: 'Your TikTok', title2: 'Downloader', buttonText: 'Get Video', actionVar: '/download/'});
+    res.render('index', {pageTitle: '#', pageDescription: '#', ogTitle: '#', ogDescription: '#', twitterTitle: '#', twitterDescription: '#', title1: 'Your TikTok', title2: 'Downloader', buttonText: 'Get Video', actionVar: '/download/', textBox: '#'});
 })
 
 app.get('/wp-login', function(req, res){
