@@ -112,14 +112,20 @@ app.get('/', function (req, res) {
     buttonText: 'Get Photo',
     actionVar: '/',
     headingText: 'Why pausebot?',
-    textBox: `Do you want to be the CEO of pausing TikToks? Do you dislike the pausebots offered on TikTok? Then this is the right website for you. We at pausebot.com have developed sophisticated algorithms for pausing TikToks for you - just in time.
-    <br> To do so you simply have to: <br><br>
+    textBox: `Do you want to be the CEO of pausing TikTok videos? Do you dislike the pausebots offered on TikTok? Then this is the right website for you. <br>
+    Our team at pausebot.com has developed sophisticated algorithms for pausing your submitted TikToks - just in time ® <br>
+    To do so you simply have to: <br><br>
+    <ul>
     1. Copy a TikTok link (e.g https://vm.tiktok.com/123456) <br>
     2. Go to this site (pausebot.com) <br>
     3. Paste the link in the field above. <br>
-    4. Hit the "Get Photo" button and wait for our servers to process your request. The processing time ranges from 5 to 10 seconds, depending on your Internet speed and the length of the video. <br>
+    4. Hit the "Get Photo" button and wait for our servers to process your request. The processing time can range from 5 to 10 seconds, depending on your Internet speed and the length of the video. <br>
     5. After we have processed the video the paused image will appear on your screen without a watermark. Glad we could help! <br>
-    If you want to express your gratitude in financial form, please take a look at the bottom of this page or visit our \"Contact us\" page. <br> If you are not satisfied with the results of our services, please checkout our Contact page. <br> You can also download the TikTok video directly to your device via our download service and manually pause the video yourself. <br> If you have encountered any problems or issues with our service we advise you to contact us via our Contact page. If you have any questions regarding your privacy rules please take a look at our \"Privacy\" page.`});
+    </ul>
+    If you want to express your gratitude in form of financial support, please take a look at the bottom of this page or visit our <a href=/contact/>Contact page</a>. <br>
+    If you are not satisfied with the results of our services, please checkout our <a href=/contact/>Contact page</a>. <br>
+    You can also download the TikTok video directly to your device via our <a href=/download/>Download page</a> and manually pause the video yourself. <br>
+    If you have encountered any problems or issues with our services we advise you to contact us via our <a href=/contact/>Contact page</a>. If you have any questions regarding your privacy rules please take a look at our <a href=/privacy/>Privacy page</a>`});
     systemSync("rm -f *.jpg");
     systemSync("rm -f *.mp4");
     systemSync("rm -f *.txt");
