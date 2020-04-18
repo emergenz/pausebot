@@ -101,14 +101,32 @@ app.set('view engine', 'pug')
 
 app.get('/', function (req, res) {
     console.log("GET REQUEST");
-    res.render('index', {pageTitle: 'Pausebot - We pause your TikToks- just in time', pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader', keyWords: 'TikTok pausebot, Tik Tok, Pausebot, pausebot.com, tiktok pause, TikTok downloader, mp4 Tik Tok downloader', ogTitle: 'Pausebot - We pause your TikToks - just in time', ogDescription: 'Your online TikTok Pausebot & Downloader', twitterTitle: 'Pausebot - just in time', twitterDescription: 'Your online TikTok Pausebot & Downloader', title1: 'Your TikTok', title2: 'Pausebot', buttonText: 'Get Photo', actionVar: '/', headingText: 'Why pausebot?',textBox: 'Do you want to be the CEO of pausing TikToks? Do you dislike the pausebots offered on TikTok? Then this is the right website for you. We at pausebot.com have developed sophisticated algorithms for pausing TikToks for you - just in time. <br> To do so you simply have to: <br><br> 1. Copy a TikTok link (e.g https://vm.tiktok.com/123456) <br> 2. Go to this site (pausebot.com) <br> 3. Paste the link in the field above. <br> 4. Hit the "Get Photo" button and wait for our servers to process your request. The processing time ranges from 5 to 10 seconds, depending on your Internet speed and the length of the video. <br> 5. After we have processed the video the paused image will appear on your screen without a watermark. Glad we could help! <br> If you want to express your gratitude in financial form, please take a look at the bottom of this page or visit our ”Contact us” page. <br> If you are not satisfied with the results of our services, please checkout our Contact page. <br> You can also download the TikTok video directly to your device via our download service and manually pause the video yourself. <br> If you have encountered any problems or issues with our service we advise you to contact us via our Contact page. If you have any questions regarding your privacy rules please take a look at our ”Privacy” page.'});
+    res.render('index', {pageTitle: 'Pausebot - We pause your TikToks- just in time', pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
+    keyWords: 'TikTok pausebot, Tik Tok, Pausebot, pausebot.com, tiktok pause, TikTok downloader, mp4 Tik Tok downloader',
+    ogTitle: 'Pausebot - We pause your TikToks - just in time',
+    ogDescription: 'Your online TikTok Pausebot & Downloader',
+    twitterTitle: 'Pausebot - just in time',
+    twitterDescription: 'Your online TikTok Pausebot & Downloader',
+    title1: 'Your TikTok',
+    title2: 'Pausebot',
+    buttonText: 'Get Photo',
+    actionVar: '/',
+    headingText: 'Why pausebot?',
+    textBox: `Do you want to be the CEO of pausing TikToks? Do you dislike the pausebots offered on TikTok? Then this is the right website for you. We at pausebot.com have developed sophisticated algorithms for pausing TikToks for you - just in time.
+    <br> To do so you simply have to: <br><br>
+    1. Copy a TikTok link (e.g https://vm.tiktok.com/123456) <br>
+    2. Go to this site (pausebot.com) <br>
+    3. Paste the link in the field above. <br>
+    4. Hit the "Get Photo" button and wait for our servers to process your request. The processing time ranges from 5 to 10 seconds, depending on your Internet speed and the length of the video. <br>
+    5. After we have processed the video the paused image will appear on your screen without a watermark. Glad we could help! <br>
+    If you want to express your gratitude in financial form, please take a look at the bottom of this page or visit our \"Contact us\" page. <br> If you are not satisfied with the results of our services, please checkout our Contact page. <br> You can also download the TikTok video directly to your device via our download service and manually pause the video yourself. <br> If you have encountered any problems or issues with our service we advise you to contact us via our Contact page. If you have any questions regarding your privacy rules please take a look at our \"Privacy\" page.`});
     systemSync("rm -f *.jpg");
     systemSync("rm -f *.mp4");
     systemSync("rm -f *.txt");
 })
 
 app.get('/contact/', function (req, res) {
-    res.render('contact', {pageTitle: 'Contact', pageDescription: 'Contact pausebot.com', ogTitle: 'Contact the pausebot.com Team!', ogDescription: 'pausebot.com help and contact', twitterTitle: 'pausebot.com contact page', twitterDescription: 'Contact the pausebot.com Team here!', title1: '', title2: 'Contact us', textBox: '#'});
+    res.render('contact', {pageTitle: 'Contact', pageDescription: 'Contact pausebot.com',ogTitle: 'Contact the pausebot.com Team!', ogDescription: 'pausebot.com help and contact', twitterTitle: 'pausebot.com contact page', twitterDescription: 'Contact the pausebot.com Team here!', title1: '', title2: 'Contact us', textBox: '#'});
 })
 
 app.get('/privacy/', function(req, res) {
