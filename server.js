@@ -126,7 +126,15 @@ app.get('/', function (req, res) {
 })
 
 app.get('/contact/', function (req, res) {
-    res.render('contact', {pageTitle: 'Contact', pageDescription: 'Contact pausebot.com',ogTitle: 'Contact the pausebot.com Team!', ogDescription: 'pausebot.com help and contact', twitterTitle: 'pausebot.com contact page', twitterDescription: 'Contact the pausebot.com Team here!', title1: '', title2: 'Contact us', textBox: '#'});
+    res.render('contact', {pageTitle: 'Contact',
+    pageDescription: 'Contact pausebot.com',
+    ogTitle: 'Contact the pausebot.com Team!',
+    ogDescription: 'pausebot.com help and contact',
+    twitterTitle: 'pausebot.com contact page',
+    twitterDescription: 'Contact the pausebot.com Team here!',
+    title1: '',
+    title2: 'Contact us',
+    textBox: '#'});
 })
 
 app.get('/privacy/', function(req, res) {
