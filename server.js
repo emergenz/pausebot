@@ -138,11 +138,30 @@ app.get('/contact/', function (req, res) {
 })
 
 app.get('/privacy/', function(req, res) {
-    res.render('contact', {pageTitle: 'Privacy', pageDescription: 'pausebot.com privacy rules ', ogTitle: 'Pausebot.com Privacy', ogDescription: 'Privacy page and rules of pausebot.com', twitterTitle: 'pausebot.com privacy page', twitterDescription: 'Privacy on pausebot.com', title1: '', title2: 'Privacy', textBox: '#'});
+    res.render('contact', {pageTitle: 'Privacy',
+    pageDescription: 'pausebot.com privacy rules ',
+    ogTitle: 'Pausebot.com Privacy',
+    ogDescription: 'Privacy page and rules of pausebot.com',
+    twitterTitle: 'pausebot.com privacy page',
+    twitterDescription: 'Privacy on pausebot.com',
+    title1: '',
+    title2: 'Privacy',
+    textBox: '#'});
 })
 
 app.get('/download/', function(req, res){
-    res.render('index', {pageTitle: 'TikTok Downloader', pageDescription: 'TikTok Video Downloader by Pausebot', keyWords: 'tiktok downloader, tiktok video downloader, tiktok to mp4, tiktok mp4 video, pausebot downloader', ogTitle: 'TikTok downloader by pausebot.com', ogDescription: 'Download TikTok Videos to mp4 powered by Pausebot', twitterTitle: 'TikTok Downloader - powered by Pausebot', twitterDescription: 'Download TikTok Videos to mp4 powered by Pausebot', title1: 'Your TikTok', title2: 'Downloader', buttonText: 'Get Video', actionVar: '/download/', textBox: '#'});
+    res.render('index', {pageTitle: 'TikTok Downloader',
+    pageDescription: 'TikTok Video Downloader by Pausebot',
+    keyWords: 'tiktok downloader, tiktok video downloader, tiktok to mp4, tiktok mp4 video, pausebot downloader',
+    ogTitle: 'TikTok downloader by pausebot.com',
+    ogDescription: 'Download TikTok Videos to mp4 powered by Pausebot',
+    twitterTitle: 'TikTok Downloader - powered by Pausebot',
+    twitterDescription: 'Download TikTok Videos to mp4 powered by Pausebot',
+    title1: 'Your TikTok',
+    title2: 'Downloader',
+    buttonText: 'Get Video',
+    actionVar: '/download/',
+    textBox: '#'});
 })
 
 app.get('/wp-login', function(req, res){

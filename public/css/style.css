@@ -4,6 +4,9 @@ body{
     margin:0;
     font-family: 'Gothic A1', sans-serif;
 }
+
+/*links einheitlich */
+
 .container-1 {
     height: 90vh;
     display: grid;
