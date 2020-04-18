@@ -103,18 +103,28 @@ body{
      outline: none;
  }
 
+.heading-text{
+    color: #E00D50;
+    font-weight: 600;
+    font-size: 4vh;
+    padding:0;
+    margin: 0;
+}
+
 .text-box{
     align-items: center;
-    grid-area: 1/1/4/5;
+    grid-area: 1/1/5/5;
     color: white;
-    background-color: #123;
-    text-align: center;
+    background-color: #000;
+    text-align: left;
+    padding: 5vw;
 }
 .description{
     color: white;
-    text-align: center;
-    margin-left: 5vw;
+    text-align: left;
 }
+
+
 
 .item-2{
     display:flex;
