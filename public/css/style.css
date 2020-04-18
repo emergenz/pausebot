@@ -103,6 +103,14 @@ body{
      outline: none;
  }
 
+.text-box{
+    color: white;
+}
+
+
+
+
+
 .item-2{
     display:flex;
     grid-area: 2 / 2 / 3 / 4;

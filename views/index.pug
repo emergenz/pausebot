@@ -41,11 +41,11 @@ html(lang='en')
                 fieldset(class='form-stuff')
                     form(action= actionVar, method='post')
                         div(class='form-right')
-                        input(name='link', type='text', class='pb-input', placeholder='E.g: https://vm.tiktok.com/xxxxxx', required)
+                        input(name='link', type='text', class='pb-input', placeholder='E.g: https://vm.tiktok.com/xxxxxx', required, onclick="this.select();")
                         input(type='submit', class='pb-button', value= buttonText)
 
             div(class='text-box')
-                p textBox
+                p
 
             div(class='item-footer')
                 div(class='footer-links-item')
