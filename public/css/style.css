@@ -5,7 +5,7 @@ body{
     font-family: 'Gothic A1', sans-serif;
 }
 .container {
-    min-height: 100vh;
+    height: 100vh;
     display: grid;
     grid-template-columns: repeat(4, 25vw);
     grid-template-rows: repeat(4, 25vh);
@@ -104,12 +104,17 @@ body{
  }
 
 .text-box{
+    align-items: center;
+    grid-area: 1/1/4/5;
     color: white;
+    background-color: #123;
+    text-align: center;
 }
-
-
-
-
+.description{
+    color: white;
+    text-align: center;
+    margin-left: 5vw;
+}
 
 .item-2{
     display:flex;
