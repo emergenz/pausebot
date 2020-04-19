@@ -236,12 +236,16 @@ app.post('/', function (req, res) {
 
     if(link.includes("/video/")){
         console.log("JO INCLUDES VIDEO");
-        var tiktokId = link.match(patt)[1];
+        try {
+            var tiktokId = link.match(patt)[1];
+        } catch (error) {
+            res.render('errorhandling',{title: 'Error', text: 'Please check if your link is right.'});
+        }
         var inputfile = tiktokId + ".mp4";
         link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
         try {
             getVideo(inputfile, tiktokId);
-        } catch (error){
+        } catch (error) {
             console.log('bei getVideo');
             res.render('errorhandling',{title: 'Error', text: 'Please check if your link is right.'});
         }
@@ -262,7 +266,11 @@ app.post('/', function (req, res) {
 
     } else if(/\d{10}/.test(link)===true){
         console.log("JO INCLUDES NUMBER");
-        var tiktokId = link.match(patt)[1];
+        try {
+            var tiktokId = link.match(patt)[1];
+        } catch (error) {
+            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
+        }
         var inputfile = tiktokId + ".mp4";
         link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
         try {
@@ -289,7 +297,11 @@ app.post('/', function (req, res) {
                 var tiktokId = results;
                 var inputfile = tiktokId + ".mp4";
                 link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
-                getVideo(inputfile, tiktokId);
+                try {
+                    getVideo(inputfile, tiktokId);
+                } catch (error) {
+                    res.render('errorhandling',{tite: 'Error', text: 'Your link is right? There\'s something to pause?'});
+                }
                 try {
                     getScreenshot(inputfile, tiktokId);
                 } catch (error){
@@ -312,7 +324,11 @@ app.post('/', function (req, res) {
 app.post('/download/', function (req, res) {
     link = req.body.link;
     if(link.includes("/video/")){
-        var tiktokId = link.match(patt)[1];
+        try {
+            var tiktokId = link.match(patt)[1];
+        } catch (error) {
+            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
+        }
         console.log("JO INCLUDES VIDEO");
         var inputfile = tiktokId + ".mp4";
         link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
@@ -326,7 +342,11 @@ app.post('/download/', function (req, res) {
         res.download(inputfile);
 
     } else if(/\d{10}/.test(link)===true){
-        var tiktokId = link.match(patt)[1];
+        try {
+            var tiktokId = link.match(patt)[1];
+        } catch (error) {
+            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
+        }
         console.log("JO INCLUDES NUMBER");
         var inputfile = tiktokId + ".mp4";
         link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
