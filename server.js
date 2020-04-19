@@ -169,8 +169,22 @@ app.get('/contact/', function (req, res) {
     twitterDescription: 'Contact the pausebot.com Team here!',
     title1: '',
     title2: 'Contact us',
-    headingText: 'was immer du willst',
-    textBox: '#'
+    headingText: 'Information',
+    textBox: `<span class='underline-description'> E-Mail:</span> <a href="mailto:pausebot@pausebot.com"> pausebot@pausebot.com</a> <br>
+    <span class='underline-description'>Instagram:</span> <a href='https://instagram.com/pausebotcom'> pausebotcom </a> <br>
+    <span class='underline-description'>TikTok:</span> <a href='https://www.tiktok.com/@pausebotcom'> pausebotcom</a> <br>
+    <h4 class='small-text-box-heading'>Reporting an issue</h4>
+    If you want to report a problem that you have encountered during the use of our services please make sure to give us a detailed description of the occuring of the error.<br>
+    In order to locate the cause of the issue we require certain information, such as:
+    <ul>
+    <li> <span class='underline-description'> What happened exactly?</span> <br> Website crashed, error message appeared, wrongfully paused</li>
+    <li> <span class='underline-description'> Which video did not get paused?</span> <br> Please include the TikTok link that caused the issue so we can distinguish between an algorithmic or network error.</li>
+    <li> <span class='underline-description'> When did the error occur? </span> <br> We update our services frequently so our users can enjoy an extraordinary experience. Issues can occur during updating our services.
+    Please keep in mind to always include your timezone when reporting a time.</li>
+    <li> <span class='underline-description'> What operating system and browser are you using? </span> <br> The used browser and operating system have a big impact on the appearance and functionality of our services.</li>
+    </ul>
+    We need this information in order to narrow down the root cause of the issue.<br>
+    If you have any questions regarding our privacy policy, please take a look at our <a href='/privacy'>Privacy page</a>`
     });
 })
 

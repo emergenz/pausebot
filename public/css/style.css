@@ -154,8 +154,12 @@ a:hover{
 }
 .description ul{
     list-style-type: none;
-    padding-left:5vw;
+    padding-left:3vw;
     color: white;
+}
+
+.small-text-box-heading{
+    font-size: 2.3vh;
 }
 
 .description li{
@@ -171,7 +175,15 @@ a:hover{
     color: #94ebe9;
     font-weight: 500;
 }
-
+.text-box-contact{
+    margin-left:2vw;
+    margin-top: -7vh;
+    align-items: center;
+    grid-area: 2/1/5/5;
+    color: white;
+    text-align: left;
+    padding: 5vw;
+}
 /*change color*/
 .item-2{
     display:flex;
@@ -198,6 +210,7 @@ a:hover{
     line-height: 1vh;
     font-size: 2vh;
 }
+
 .item-footer{
     display:flex;
     grid-area: 4 / 1 / 5 / 5;
