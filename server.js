@@ -144,18 +144,19 @@ app.get('/download/', function(req, res){
     buttonText: 'Get Video',
     actionVar: '/download/',
     headingText:'TikTok Downloader',
-    textBox: `Downloading TikToks videos without a watermark to your mobile or desktop device has never been so easy.
+    textBox: `Downloading TikTok videos without a watermark to your mobile or desktop device has never been so easy.
+    In order to download any TikTok video follow the following steps:
     <ul>
     <li> <span class='description-list-start'> 1. </span> Copy a TikTok link (e.g https://vm.tiktok.com/123456)</li>
     <li> <span class='description-list-start'> 2. </span> Go to this site (pausebot.com/download) </li>
     <li> <span class='description-list-start'> 3. </span> Paste the link in the field above. </li>
     <li> <span class='description-list-start'> 4. </span> Hit the "Get Video" button and wait for our servers to process your request. The processing time can range from 5 to 10 seconds, depending on your Internet speed and the length of the video. </li>
-    <li> <span class='description-list-start'> 5. </span> After processing will appear on your screen without a watermark. Glad we could help! </li>
+    <li> <span class='description-list-start'> 5. </span> After processing the video will be downloaded to your device's storage without a watermark. Glad we could help! </li>
     </ul>
-     Just copy the link from TikTok, paste it in the text field above and hit "Get video".
-    Our servers immediately redirect your request and start downloading the video as a mp4 file directly to your device's storage.
+    Just copy the link from TikTok, paste it in the text field above and hit "Get video".
+    Our servers immediately process your request and start downloading the video as an mp4 file directly to your device's storage.
     This process takes between 5 and 10 seconds, depending on your Internet speed and the length of the video.
-    If you have ecnounterd any problems or issues we advise you to contact us via our Contact page.`
+    If you have encountered any problems or issues with our services we advise you to contact us via our Contact page.`
     });
 })
 
