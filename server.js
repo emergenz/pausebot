@@ -113,14 +113,14 @@ app.get('/', function (req, res) {
     actionVar: '/',
     headingText: 'Why pausebot?',
     textBox: `Do you want to be the CEO of pausing TikTok videos? Do you dislike the pausebots offered on TikTok? Then this is the right website for you. <br>
-    Our team at pausebot.com has developed sophisticated algorithms for pausing your submitted TikToks - just in time ® <br>
+    Our team at pausebot.com has developed sophisticated algorithms for pausing your submitted TikToks - <span class='underline-description'> just in time </span><br>
     To do so you simply have to: <br><br>
     <ul>
-    1. Copy a TikTok link (e.g https://vm.tiktok.com/123456) <br>
-    2. Go to this site (pausebot.com) <br>
-    3. Paste the link in the field above. <br>
-    4. Hit the "Get Photo" button and wait for our servers to process your request. The processing time can range from 5 to 10 seconds, depending on your Internet speed and the length of the video. <br>
-    5. After we have processed the video the paused image will appear on your screen without a watermark. Glad we could help! <br>
+    <li> <span class='description-list-start'> 1. </span>Copy a TikTok link (e.g https://vm.tiktok.com/123456)</li>
+    <li> <span class='description-list-start'> 2. </span>Go to this site (pausebot.com) </li>
+    <li> <span class='description-list-start'> 3. </span>Paste the link in the field above. </li>
+    <li> <span class='description-list-start'> 4. </span>Hit the "Get Photo" button and wait for our servers to process your request. The processing time can range from 5 to 10 seconds, depending on your Internet speed and the length of the video. </li>
+    <li> <span class='description-list-start'> 5. </span>After we have processed the video the paused image will appear on your screen without a watermark. Glad we could help! </li>
     </ul>
     If you want to express your gratitude in form of financial support, please take a look at the bottom of this page or visit our <a href=/contact/>Contact page</a>. <br>
     If you are not satisfied with the results of our services, please checkout our <a href=/contact/>Contact page</a>. <br>

@@ -136,12 +136,39 @@ a:hover{
 .description{
     color: white;
     text-align: left;
+    margin-bottom: 0;
+    font-size: 100%;
+}
+.underline-description{
+    display: inline-grid;
+    margin: 0;
+    padding: 0;
+    display: inline;
+    border-bottom: 1px solid #de356b;
+    padding-bottom: 0px;
+    font-weight: 600;
 }
 .description ul{
+    list-style-type: none;
+    padding-left:5vw;
     color: white;
+}
+
+.description li{
+    padding: 4px;
+}
+
+.description-list-start{
+    font-weight: 800;
+    font-size: 3vh;
+}
+
+.description a{
+    color: #94ebe9;
+    font-weight: 500;
+}
 
 /*change color*/
-}
 .item-2{
     display:flex;
     grid-area: 2 / 2 / 3 / 4;
