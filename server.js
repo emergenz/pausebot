@@ -241,18 +241,25 @@ app.post('/', function (req, res) {
         var inputfile = tiktokId + ".mp4";
         link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
         try {
-        getVideo(inputfile, tiktokId);
+            getVideo(inputfile, tiktokId);
         } catch (error){
+            console.log('bei getVideo');
             res.render('errorhandling',{title: 'Error', text: 'Please check if your link is right.'});
         }
         try {
-        getScreenshot(inputfile, tiktokId);
+            getScreenshot(inputfile, tiktokId);
         } catch (error) {
+            console.log('bei getScreenshot');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
         }
         console.log(link);
         //res.render('index');
-        res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
+        if (fs.existsSync(tiktokId + ".jpg")) {
+            res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
+        } else {
+            console.log('bei sendFile');
+            res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
+        }
 
     } else if(/\d{10}/.test(link)===true){
         console.log("JO INCLUDES NUMBER");
@@ -270,8 +277,12 @@ app.post('/', function (req, res) {
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
         }
         console.log(link);
-        res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
-
+        if (fs.existsSync(tiktokId + ".jpg")) {
+            res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
+        } else {
+            console.log('bei sendFile');
+            res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
+        }
     } else {
         try {
             finder(link,function(results){
@@ -286,8 +297,12 @@ app.post('/', function (req, res) {
                     res.render('errorhandling',{tite: 'Error', text: 'Your link is right? There\'s something to pause?'});
                 }
                 console.log(link);
-                res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
-
+                if (fs.existsSync(tiktokId + ".jpg")) {
+                    res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
+                } else {
+                    console.log('bei sendFile');
+                    res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
+                }
             });
         } catch (error) {
             res.render('errorhandling',{tite: 'Error', text: 'Your link is right? There\'s something to pause?'});
