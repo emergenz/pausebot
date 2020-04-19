@@ -5,3 +5,5 @@ git push -u origin master /lädt das ding hoch
 git remote update /geht auf repo
 git status -uno /schaut was neu is
 git pull /falls was neu is, lädt er runter
+
+nohup node server.js > /dev/null 2>&1 &
