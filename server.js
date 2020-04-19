@@ -131,31 +131,6 @@ app.get('/', function (req, res) {
     systemSync("rm -f *.txt");
 })
 
-app.get('/contact/', function (req, res) {
-    res.render('contact', {pageTitle: 'Contact',
-    pageDescription: 'Contact pausebot.com',
-    ogTitle: 'Contact the pausebot.com Team!',
-    ogDescription: 'pausebot.com help and contact',
-    twitterTitle: 'pausebot.com contact page',
-    twitterDescription: 'Contact the pausebot.com Team here!',
-    title1: '',
-    title2: 'Contact us',
-    textBox: '#'
-    });
-})
-
-app.get('/privacy/', function(req, res) {
-    res.render('contact', {pageTitle: 'Privacy',
-    pageDescription: 'pausebot.com privacy rules ',
-    ogTitle: 'Pausebot.com Privacy',
-    ogDescription: 'Privacy page and rules of pausebot.com',
-    twitterTitle: 'pausebot.com privacy page',
-    twitterDescription: 'Privacy on pausebot.com',
-    title1: '',
-    title2: 'Privacy',
-    textBox: '#'});
-})
-
 app.get('/download/', function(req, res){
     res.render('index', {pageTitle: 'TikTok Downloader',
     pageDescription: 'TikTok Video Downloader by Pausebot',
@@ -181,6 +156,31 @@ app.get('/download/', function(req, res){
     This process takes between 5 and 10 seconds, depending on your Internet speed and the length of the video.
     If you have ecnounterd any problems or issues we advise you to contact us via our Contact page.`
     });
+})
+
+app.get('/contact/', function (req, res) {
+    res.render('contact', {pageTitle: 'Contact',
+    pageDescription: 'Contact pausebot.com',
+    ogTitle: 'Contact the pausebot.com Team!',
+    ogDescription: 'pausebot.com help and contact',
+    twitterTitle: 'pausebot.com contact page',
+    twitterDescription: 'Contact the pausebot.com Team here!',
+    title1: '',
+    title2: 'Contact us',
+    textBox: '#'
+    });
+})
+
+app.get('/privacy/', function(req, res) {
+    res.render('contact', {pageTitle: 'Privacy',
+    pageDescription: 'pausebot.com privacy rules ',
+    ogTitle: 'Pausebot.com Privacy',
+    ogDescription: 'Privacy page and rules of pausebot.com',
+    twitterTitle: 'pausebot.com privacy page',
+    twitterDescription: 'Privacy on pausebot.com',
+    title1: '',
+    title2: 'Privacy',
+    textBox: '#'});
 })
 
 app.get('/wp-login', function(req, res){
