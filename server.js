@@ -197,8 +197,25 @@ app.get('/privacy/', function(req, res) {
     twitterDescription: 'Privacy on pausebot.com',
     title1: '',
     title2: 'Privacy',
-    headingText: 'was immer du willst',
-    textBox: '#'});
+    headingText: 'Our Policy',
+    textBox: `
+    <h4 class='small-text-box-heading'>Personal identification information</h4>
+    We may collect personal identification information from users in a variety of ways, including, but not limited to, when users visit our site, fill out a form, and in connection with other activities, services, features or resources we make available on our site. users may visit our site anonymously. We will collect personal identification information from users only if they voluntarily submit such information to us. users can always refuse to supply personally identification information, except that it may prevent them from engaging in certain site related activities.
+    <h4 class='small-text-box-heading'>Non-personal identification information</h4>
+    We may collect non-personal identification information about users whenever they interact with our site. Non-personal identification information may include the browser name, the type of computer and technical information about users means of connection to our site, such as the operating system and the Internet service providers utilized and other similar information. We may collect non-personal identification information about users whenever they interact with our site. Non-personal identification information may include the browser name, the type of computer and technical information about users means of connection to our site, such as the operating system and the Internet service providers utilized and other similar information.
+    <h4 class='small-text-box-heading'>Web browser cookies</h4>
+    We may collect non-personal identification information about users whenever they interact with our site. Non-personal identification information may include the browser name, the type of computer and technical information about users means of connection to our site, such as the operating system and the Internet service providers utilized and other similar information. We may collect non-personal identification information about users whenever they interact with our site. Non-personal identification information may include the browser name, the type of computer and technical information about users means of connection to our site, such as the operating system and the Internet service providers utilized and other similar information.
+    <h4 class='small-text-box-heading'>How we use collected information</h4>
+    pausebot.com does not collect or store information about you.
+    <h4 class='small-text-box-heading'>Advertising</h4>
+    Ads appearing on our site may be delivered to users by advertising partners, who may set cookies. These cookies allow the ad server to recognize your computer each time they send you an online advertisement to compile non personal identification information about you or others who use your computer. This information allows ad networks to, among other things, deliver targeted advertisements that they believe will be of most interest to you. This privacy policy does not cover the use of cookies by any advertisers.
+    <h4 class='small-text-box-heading'>Google Adsense</h4>
+    Some of the ads may be served by Google. Google's use of the DART cookie enables it to serve ads to users based on their visit to our site and other sites on the Internet. DART uses "non personally identifiable information" and does NOT track personal information about you, such as your name, email address, physical address, etc. You may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy at <a href='https://policies.google.com/technologies/ads'>https://policies.google.com/technologies/ads</a>
+    <h4 class='small-text-box-heading'>Changes to this privacy policy</h4>
+    pausebot.com has the discretion to update this privacy policy at any time. When we do, we will post a notification on the main page of our site, revise the updated date at the bottom of this page. We encourage users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.
+    <h4 class='small-text-box-heading'>Your acceptance of these terms</h4>
+    By using this site, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our site. Your continued use of the site following the posting of changes to this policy will be deemed your acceptance of those changes.`
+});
 })
 
 app.get('/wp-login', function(req, res){

@@ -157,20 +157,18 @@ a:hover{
     padding-left:3vw;
     color: white;
 }
-
 .small-text-box-heading{
     font-size: 2.3vh;
+    margin-top: 5vh;
+    margin-bottom: 1vh;
 }
-
 .description li{
     padding: 4px;
 }
-
 .description-list-start{
     font-weight: 800;
     font-size: 3vh;
 }
-
 .description a{
     color: #94ebe9;
     font-weight: 500;
@@ -184,7 +182,6 @@ a:hover{
     text-align: left;
     padding: 5vw;
 }
-/*change color*/
 .item-2{
     display:flex;
     grid-area: 2 / 2 / 3 / 4;
