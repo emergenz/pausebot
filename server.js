@@ -167,6 +167,7 @@ app.get('/contact/', function (req, res) {
     twitterDescription: 'Contact the pausebot.com Team here!',
     title1: '',
     title2: 'Contact us',
+    headingText: 'was immer du willst',
     textBox: '#'
     });
 })
@@ -180,6 +181,7 @@ app.get('/privacy/', function(req, res) {
     twitterDescription: 'Privacy on pausebot.com',
     title1: '',
     title2: 'Privacy',
+    headingText: 'was immer du willst',
     textBox: '#'});
 })
 
