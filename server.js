@@ -133,8 +133,8 @@ app.get('/', function (req, res) {
 
 app.get('/download/', function(req, res){
     res.render('index', {pageTitle: 'TikTok Downloader',
-    pageDescription: 'TikTok Video Downloader by Pausebot',
-    keyWords: 'tiktok downloader, tiktok video downloader, tiktok to mp4, tiktok mp4 video, pausebot downloader',
+    pageDescription: 'Online TikTok Video Downloader by Pausebot',
+    keyWords: 'tiktok downloader, tiktok video downloader online, tiktok to mp4 online, tiktok mp4 video, pausebot downloader',
     ogTitle: 'TikTok downloader by pausebot.com',
     ogDescription: 'Download TikTok Videos to mp4 powered by Pausebot',
     twitterTitle: 'TikTok Downloader - powered by Pausebot',
@@ -144,19 +144,18 @@ app.get('/download/', function(req, res){
     buttonText: 'Get Video',
     actionVar: '/download/',
     headingText:'TikTok Downloader',
-    textBox: `Downloading TikTok videos without a watermark to your mobile or desktop device has never been so easy.
+    textBox: `Downloading TikTok videos online without a watermark to your mobile or desktop device has never been so easy.
     In order to download any TikTok video follow the following steps:
     <ul>
     <li> <span class='description-list-start'> 1. </span> Copy a TikTok link (e.g https://vm.tiktok.com/123456)</li>
     <li> <span class='description-list-start'> 2. </span> Go to this site (pausebot.com/download) </li>
     <li> <span class='description-list-start'> 3. </span> Paste the link in the field above. </li>
-    <li> <span class='description-list-start'> 4. </span> Hit the "Get Video" button and wait for our servers to process your request. The processing time can range from 5 to 10 seconds, depending on your Internet speed and the length of the video. </li>
+    <li> <span class='description-list-start'> 4. </span> Hit the "Get Video" button and wait for our servers to process your request. The processing time can range from 3 to 8 seconds, depending on your Internet speed and the length of the video. </li>
     <li> <span class='description-list-start'> 5. </span> After processing the video will be downloaded to your device's storage without a watermark. Glad we could help! </li>
     </ul>
-    Just copy the link from TikTok, paste it in the text field above and hit "Get video".
-    Our servers immediately process your request and start downloading the video as an mp4 file directly to your device's storage.
-    This process takes between 5 and 10 seconds, depending on your Internet speed and the length of the video.
-    If you have encountered any problems or issues with our services we advise you to contact us via our Contact page.`
+    This service is a free online TikTok video donwloader. There is no need to install any extensions or pay any service-fee: Our service will always stay free and public.
+    We automatically remove the watermark from the TikTok video for you. Our service works for Android, iOS and desktop devices alike. Just follow the steps presented above to download your TikTok video as mp4 to your device's storage.
+    We do not store any information about our users, nor do we permanently save the downloaded videos. If you are experiencing any issues with our services we advise you to contact us via our official channels provided on our <a href=/contact/>Contact page</a>`
     });
 })
 
