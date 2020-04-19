@@ -148,6 +148,10 @@ a:hover{
     padding-bottom: 0px;
     font-weight: 600;
 }
+.description h3{
+    text-decoration: underline;
+    text-decoration-color: #94ebe9;
+}
 .description ul{
     list-style-type: none;
     padding-left:5vw;
