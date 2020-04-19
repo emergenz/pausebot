@@ -143,6 +143,7 @@ app.get('/download/', function(req, res){
     title2: 'Downloader',
     buttonText: 'Get Video',
     actionVar: '/download/',
+    headingText:'TikTok Downloader',
     textBox: `Downloading TikToks videos without a watermark to your mobile or desktop device has never been so easy.
     <ul>
     <li> <span class='description-list-start'> 1. </span> Copy a TikTok link (e.g https://vm.tiktok.com/123456)</li>
