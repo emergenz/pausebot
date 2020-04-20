@@ -39,7 +39,7 @@ function getVideo(inputfile, tiktokId){
 }
 
 function compressVideo(inputfile, tiktokId){
-    systemSync("ffmpeg -y -i " + inputfile + " -crf 49 -vf scale=iw/2:ih/2,crop=iw:ih*.824:0:ih*.09,hue=s=0 -an '"+ tiktokId+"output.mp4'");
+    systemSync("ffmpeg -y -i " + inputfile + " -crf 49 -vf scale=iw/2:ih/2,crop=iw:ih*.824:0:ih*.09 -an '"+ tiktokId+"output.mp4'");
 }
 
 function getTimestamps(inputfile, tiktokId){
@@ -312,7 +312,7 @@ app.post('/', function (req, res) {
                     res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
                 } else {
                     console.log('bei sendFile');
-                    res.render('errorhandling',{tite: 'Error', Sorry, texThis video can\'t be pau. d  Please try again.});
+                    res.render('errorhandling',{tite: 'Error', text : 'Sorry, this video can\'t be paused  Please try again.'});
                 }
             });
         } catch (error) {
