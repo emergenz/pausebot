@@ -7,3 +7,7 @@ git status -uno /schaut was neu is
 git pull /falls was neu is, lädt er runter
 
 nohup node server.js > /dev/null 2>&1 &
+tmux a 
+noder server.js
+strg b + d
+[detached]
