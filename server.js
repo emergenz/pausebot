@@ -300,23 +300,23 @@ app.post('/', function (req, res) {
                 try {
                     getVideo(inputfile, tiktokId);
                 } catch (error) {
-                    res.render('errorhandling',{tite: 'Error', text: 'Your link is right? There\'s something to pause?'});
+                    res.render('errorhandling',{tite: 'Error', text: 'Sorry, this video can\'t be paused. Please try again.'});
                 }
                 try {
                     getScreenshot(inputfile, tiktokId);
                 } catch (error){
-                    res.render('errorhandling',{tite: 'Error', text: 'Your link is right? There\'s something to pause?'});
+                    res.render('errorhandling',{tite: 'Error', text: 'Sorry, this video can\'t be paused. Please try again.'});
                 }
                 console.log(link);
                 if (fs.existsSync(tiktokId + ".jpg")) {
                     res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
                 } else {
                     console.log('bei sendFile');
-                    res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
+                    res.render('errorhandling',{tite: 'Error', Sorry, texThis video can\'t be pau. d  Please try again.});
                 }
             });
         } catch (error) {
-            res.render('errorhandling',{tite: 'Error', text: 'Your link is right? There\'s something to pause?'});
+            res.render('errorhandling',{tite: 'Error', text: 'Sorry, this video can\'t be paused. Please try again.'});
         }
     }
 })
@@ -327,7 +327,7 @@ app.post('/download/', function (req, res) {
         try {
             var tiktokId = link.match(patt)[1];
         } catch (error) {
-            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
+            res.render('errorhandling',{tite: 'Error', text: 'The link you entered is wrong. Please try again.'});
         }
         console.log("JO INCLUDES VIDEO");
         var inputfile = tiktokId + ".mp4";
@@ -335,7 +335,7 @@ app.post('/download/', function (req, res) {
         try {
         getVideo(inputfile, tiktokId);
         } catch (error) {
-            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
+            res.render('errorhandling',{tite: 'Error', text: 'The link you entered is wrong. Please try again.'});
         }
         console.log(link);
         //res.render('index');
@@ -345,7 +345,7 @@ app.post('/download/', function (req, res) {
         try {
             var tiktokId = link.match(patt)[1];
         } catch (error) {
-            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
+            res.render('errorhandling',{tite: 'Error', text: 'The link you entered is wrong. Please try again.'});
         }
         console.log("JO INCLUDES NUMBER");
         var inputfile = tiktokId + ".mp4";
@@ -353,7 +353,7 @@ app.post('/download/', function (req, res) {
         try {
         getVideo(inputfile, tiktokId);
         } catch (error) {
-            res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
+            res.render('errorhandling',{tite: 'Error', text: 'The link you entered is wrong. Please try again.'});
         }
         console.log(link);
         res.download(inputfile);
