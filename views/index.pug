@@ -18,6 +18,13 @@ html(lang='en')
               gtag('js', new Date());
               gtag('config', 'UA-163806742-1');
 
+
+        //- media.net
+        script.
+            window._mNHandle = window._mNHandle || {};
+            window._mNHandle.queue = window._mNHandle.queue || [];
+            medianet_versionId = "3121199";
+        script(src='https://contextual.media.net/dmedianet.js?cid=8CUO7I0PH', async='async')
         <!-- Facebook -->
         meta(property='og:type', content='website')
         meta(property='og:locale', content='en_US')
@@ -36,13 +43,15 @@ html(lang='en')
                     h2(class='heading-1')= title1
                     h1(class='heading-2')= title2
             div(class='item-2')
-                div(id='rounded', class='list-content')
-                    h2(class='list-heading') How it works
-                    div(class='list-styling')
-                        p Sroll down
-                        p Paste link
-                        p Wait
-                        p Enjoy!
+                div(id='207631264')
+                    script(type='text/javascript').
+                        try {
+                          window._mNHandle.queue.push(function (){
+                            window._mNDetails.loadTag("207631264", "728x90", "207631264");
+                          });
+                        }
+                        catch (error) {}
+
 
             div(class='item-input')
                 fieldset(class='form-stuff')

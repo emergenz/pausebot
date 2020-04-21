@@ -122,6 +122,7 @@ app.get('/', function (req, res) {
     <li> <span class='description-list-start'> 4. </span>Hit the "Get Photo" button and wait for our servers to process your request. The processing time can range from 5 to 10 seconds, depending on your Internet speed and the length of the video. </li>
     <li> <span class='description-list-start'> 5. </span>After we have processed the video the paused image will appear on your screen without a watermark. Glad we could help! </li>
     </ul>
+    This site uses <a href='https://www.dpbolvw.net/click-9294548-11146127',target=_blank> Interserver Hosting </a>.
     If you want to express your gratitude in form of financial support, please take a look at the bottom of this page or visit our <a href=/contact/>Contact page</a>. <br>
     If you are not satisfied with the results of our services, please checkout our <a href=/contact/>Contact page</a>. <br>
     You can also download the TikTok video directly to your device via our <a href=/download/>Download page</a> and manually pause the video yourself. <br>
@@ -243,6 +244,7 @@ app.post('/', function (req, res) {
         }
         var inputfile = tiktokId + ".mp4";
         link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
+        console.log(link);
         try {
             getVideo(inputfile, tiktokId);
         } catch (error) {
@@ -253,14 +255,15 @@ app.post('/', function (req, res) {
             getScreenshot(inputfile, tiktokId);
         } catch (error) {
             console.log('bei getScreenshot');
+            systemSync('echo '+ link +' >> nopause');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
         }
-        console.log(link);
         //res.render('index');
         if (fs.existsSync(tiktokId + ".jpg")) {
             res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
         } else {
             console.log('bei sendFile');
+            systemSync('echo '+ link +' >> nopause');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
         }
 
@@ -273,6 +276,7 @@ app.post('/', function (req, res) {
         }
         var inputfile = tiktokId + ".mp4";
         link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
+        console.log(link);
         try {
         getVideo(inputfile, tiktokId);
         } catch (error){
@@ -282,13 +286,14 @@ app.post('/', function (req, res) {
         getScreenshot(inputfile, tiktokId);
         } catch (error) {
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
+            systemSync('echo '+ link +' >> nopause');
         }
-        console.log(link);
         if (fs.existsSync(tiktokId + ".jpg")) {
             res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
         } else {
             console.log('bei sendFile');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
+            systemSync('echo '+ link +' >> nopause');
         }
     } else {
         try {
@@ -297,26 +302,30 @@ app.post('/', function (req, res) {
                 var tiktokId = results;
                 var inputfile = tiktokId + ".mp4";
                 link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
+                console.log(link);
                 try {
                     getVideo(inputfile, tiktokId);
                 } catch (error) {
                     res.render('errorhandling',{tite: 'Error', text: 'Sorry, this video can\'t be paused. Please try again.'});
+                    systemSync('echo '+ link +' >> nopause');
                 }
                 try {
                     getScreenshot(inputfile, tiktokId);
                 } catch (error){
                     res.render('errorhandling',{tite: 'Error', text: 'Sorry, this video can\'t be paused. Please try again.'});
+                    systemSync('echo '+ link +' >> nopause');
                 }
-                console.log(link);
                 if (fs.existsSync(tiktokId + ".jpg")) {
                     res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
                 } else {
                     console.log('bei sendFile');
                     res.render('errorhandling',{tite: 'Error', text : 'Sorry, this video can\'t be paused  Please try again.'});
+                    systemSync('echo '+ link +' >> nopause');
                 }
             });
         } catch (error) {
             res.render('errorhandling',{tite: 'Error', text: 'Sorry, this video can\'t be paused. Please try again.'});
+            systemSync('echo '+ link +' >> nopause');
         }
     }
 })
