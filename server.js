@@ -299,7 +299,12 @@ app.post('/', function (req, res) {
         try {
             finder(link,function(results){
                 console.log("JO NO NUMBER");
-                var tiktokId = results;
+                try {
+                    var tiktokId = results;
+                } catch (error) {
+                    res.render('errorhandling',{tite: 'Error', text: 'Your link isn\'t right.'});
+                    systemSync('echo '+ link +' >> nopause');
+                }
                 var inputfile = tiktokId + ".mp4";
                 link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
                 console.log(link);
