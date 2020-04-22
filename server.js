@@ -299,9 +299,19 @@ app.post('/', function (req, res) {
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
             systemSync('echo '+ link +' >> nopause');
         }
-        if (fs.existsSync(tiktokId + ".jpg")) {
+        if (fs.existsSync('./public/images/' + tiktokId + ".jpg")) {
             systemSync('echo '+ link +' >> paused');
-            res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
+            res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
+                                       pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
+                                       ogTitle: 'Pausebot - We pause your TikToks - just in time',
+                                       ogDescription: 'Your online TikTok Pausebot & Downloader',
+                                       twitterTitle: 'Pausebot - just in time',
+                                       twitterDescription: 'Your online TikTok Pausebot & Downloader',
+                                       title1: 'Your TikTok',
+                                       title2: 'Pausebot',
+                                       headingText: 'Paused Image',
+                                       imageSource: '/images/' + tiktokId + '.jpg'                           
+                                      });
         } else {
             console.log('bei sendFile');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
@@ -332,9 +342,19 @@ app.post('/', function (req, res) {
                     res.render('errorhandling',{tite: 'Error', text: 'Sorry, this video can\'t be paused. Please try again.'});
                     systemSync('echo '+ link +' >> nopause');
                 }
-                if (fs.existsSync(tiktokId + ".jpg")) {
+                if (fs.existsSync('./public/images/' + tiktokId + ".jpg")) {
                     systemSync('echo '+ link +' >> paused');
-                    res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
+                    res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
+                                               pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
+                                               ogTitle: 'Pausebot - We pause your TikToks - just in time',
+                                               ogDescription: 'Your online TikTok Pausebot & Downloader',
+                                               twitterTitle: 'Pausebot - just in time',
+                                               twitterDescription: 'Your online TikTok Pausebot & Downloader',
+                                               title1: 'Your TikTok',
+                                               title2: 'Pausebot',
+                                               headingText: 'Paused Image',
+                                               imageSource: '/images/' + tiktokId + '.jpg'                           
+                                              });
                 } else {
                     console.log('bei sendFile');
                     res.render('errorhandling',{tite: 'Error', text : 'Sorry, this video can\'t be paused  Please try again.'});
