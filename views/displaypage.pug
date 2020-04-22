@@ -11,12 +11,6 @@ html(lang='en')
         meta(name='author', content='Lele & Franz')
         //- Google
         script(data-ad-client="ca-pub-9895481935799934", async, src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
-        script(async, src='https://www.googletagmanager.com/gtag/js?id=UA-163806742-1')
-        script.
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'UA-163806742-1');
         <!-- Facebook -->
         meta(property='og:type', content='website')
         meta(property='og:locale', content='en_US')
@@ -37,7 +31,7 @@ html(lang='en')
             div(class='text-box-contact')
                 div(class='description')
                     h3(class='heading-text')= headingText
-                    p !{textBox}
+                    img(src= imageSource, alt='paused Image')
                     div(class='item-footer')
                         div(class='footer-links-item')
                             span(class='footer-links')

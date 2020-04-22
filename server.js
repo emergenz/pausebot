@@ -21,14 +21,14 @@ function finder(link,callback){
             });
             resp.on('end',()=>{
                 var newUrl=data.match(patt)[1];
-                callback(newUrl)
+                callback(newUrl);
                 //console.log(newUrl);
 
             });
         }else{
             //WENN DIE URL NICHT GEHT
             var newUrl= "Nope";
-            callback(newUrl)
+            callback(newUrl);
             //console.log(resp.statusCode);
         }
     });
@@ -46,7 +46,7 @@ function getTimestamps(inputfile, tiktokId){
     systemSync(`ffmpeg -i "`+ tiktokId +`output.mp4" -filter:v "select='gt(scene,0.4)',showinfo" -f null - 2> ffout` + tiktokId +".txt");
 
     systemSync("grep showinfo ffout" + tiktokId + ".txt | grep \'pts_time:[0-9.]*\' -o | grep \'[0-9.]*\' -o > "+ tiktokId +"timestamps.txt");
-   systemSync("ffprobe -v error -show_entries format=duration \
+    systemSync("ffprobe -v error -show_entries format=duration \
   -of default=noprint_wrappers=1:nokey=1 "+ tiktokId +"output.mp4 >> "+ tiktokId +"timestamps.txt");
 
     var timestampsname = tiktokId + "timestamps.txt";
@@ -91,7 +91,7 @@ function getScreenshot(inputfile, tiktokId){
 
     new_timestamp = getTimestamps(inputfile, tiktokId);
 
-    systemSync("ffmpeg -y -ss " + new_timestamp.toString() + " -i " + inputfile +" -vframes 1 -q:v 2 " +tiktokId+ ".jpg");
+    systemSync("ffmpeg -y -ss " + new_timestamp.toString() + " -i " + inputfile +" -vframes 1 -q:v 2 ./public/images/" +tiktokId+ ".jpg");
 
 }
 
@@ -127,7 +127,7 @@ app.get('/', function (req, res) {
     If you are not satisfied with the results of our services, please checkout our <a href=/contact/>Contact page</a>. <br>
     You can also download the TikTok video directly to your device via our <a href=/download/>Download page</a> and manually pause the video yourself. <br>
     If you have encountered any problems or issues with our services we advise you to contact us via our <a href=/contact/>Contact page</a>. If you have any questions regarding your privacy rules please take a look at our <a href=/privacy/>Privacy page</a>`});
-    systemSync("rm -f *.jpg");
+    systemSync("rm -f ./public/images/*.jpg");
     systemSync("rm -f *.mp4");
     systemSync("rm -f *.txt");
 })
@@ -259,8 +259,19 @@ app.post('/', function (req, res) {
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
         }
         //res.render('index');
-        if (fs.existsSync(tiktokId + ".jpg")) {
-            res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
+        if (fs.existsSync('./public/images/' + tiktokId + ".jpg")) {
+            systemSync('echo '+ link +' >> paused');
+            res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
+                                       pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
+                                       ogTitle: 'Pausebot - We pause your TikToks - just in time',
+                                       ogDescription: 'Your online TikTok Pausebot & Downloader',
+                                       twitterTitle: 'Pausebot - just in time',
+                                       twitterDescription: 'Your online TikTok Pausebot & Downloader',
+                                       title1: 'Your TikTok',
+                                       title2: 'Pausebot',
+                                       headingText: 'Paused Image',
+                                       imageSource: '/images/' + tiktokId + '.jpg'                           
+                                      });
         } else {
             console.log('bei sendFile');
             systemSync('echo '+ link +' >> nopause');
@@ -289,6 +300,7 @@ app.post('/', function (req, res) {
             systemSync('echo '+ link +' >> nopause');
         }
         if (fs.existsSync(tiktokId + ".jpg")) {
+            systemSync('echo '+ link +' >> paused');
             res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
         } else {
             console.log('bei sendFile');
@@ -321,6 +333,7 @@ app.post('/', function (req, res) {
                     systemSync('echo '+ link +' >> nopause');
                 }
                 if (fs.existsSync(tiktokId + ".jpg")) {
+                    systemSync('echo '+ link +' >> paused');
                     res.sendFile(""+ tiktokId +".jpg", {root: __dirname});
                 } else {
                     console.log('bei sendFile');
