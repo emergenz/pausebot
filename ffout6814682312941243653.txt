@@ -1,11 +1,12 @@
-ffmpeg version n4.2.2 Copyright (c) 2000-2019 the FFmpeg developers
-  built with gcc 9.3.0 (Arch Linux 9.3.0-1)
-  configuration: --prefix=/usr --disable-debug --disable-static --disable-stripping --enable-fontconfig --enable-gmp --enable-gnutls --enable-gpl --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libdav1d --enable-libdrm --enable-libfreetype --enable-libfribidi --enable-libgsm --enable-libiec61883 --enable-libjack --enable-libmfx --enable-libmodplug --enable-libmp3lame --enable-libopencore_amrnb --enable-libopencore_amrwb --enable-libopenjpeg --enable-libopus --enable-libpulse --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libv4l2 --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxcb --enable-libxml2 --enable-libxvid --enable-nvdec --enable-nvenc --enable-omx --enable-shared --enable-version3
+ffmpeg version 4.2.2 Copyright (c) 2000-2019 the FFmpeg developers
+  built with Apple LLVM version 10.0.0 (clang-1000.11.45.5)
+  configuration: --prefix=/usr/local/Cellar/ffmpeg/4.2.2_2 --enable-shared --enable-pthreads --enable-version3 --enable-avresample --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libmp3lame --enable-libopus --enable-librubberband --enable-libsnappy --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-librtmp --enable-libspeex --enable-libsoxr --enable-videotoolbox --disable-libjack --disable-indev=jack
   libavutil      56. 31.100 / 56. 31.100
   libavcodec     58. 54.100 / 58. 54.100
   libavformat    58. 29.100 / 58. 29.100
   libavdevice    58.  8.100 / 58.  8.100
   libavfilter     7. 57.100 /  7. 57.100
+  libavresample   4.  0.  0 /  4.  0.  0
   libswscale      5.  5.100 /  5.  5.100
   libswresample   3.  5.100 /  3.  5.100
   libpostproc    55.  5.100 / 55.  5.100
@@ -23,8 +24,8 @@ Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '6814682312941243653output.mp4':
 Stream mapping:
   Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))
 Press [q] to stop, [?] for help
-[Parsed_showinfo_1 @ 0x55fabff1e200] config in time_base: 1/15360, frame_rate: 30/1
-[Parsed_showinfo_1 @ 0x55fabff1e200] config out time_base: 0/0, frame_rate: 0/0
+[Parsed_showinfo_1 @ 0x7fd419d6c6c0] config in time_base: 1/15360, frame_rate: 30/1
+[Parsed_showinfo_1 @ 0x7fd419d6c6c0] config out time_base: 0/0, frame_rate: 0/0
 Output #0, null, to 'pipe:':
   Metadata:
     major_brand     : isom
@@ -36,9 +37,9 @@ Output #0, null, to 'pipe:':
     Metadata:
       handler_name    : VideoHandler
       encoder         : Lavc58.54.100 wrapped_avframe
-[Parsed_showinfo_1 @ 0x55fabff1e200] n:   0 pts: 129536 pts_time:8.43333 pos:    32553 fmt:rgb24 sar:0/1 s:288x422 i:P iskey:0 type:I checksum:13FDE5B4 plane_checksum:[13FDE5B4] mean:[108 ] stdev:[81.6 ]
-[Parsed_showinfo_1 @ 0x55fabff1e200] color_range:tv color_space:unknown color_primaries:unknown color_trc:unknown
-[Parsed_showinfo_1 @ 0x55fabff1e200] n:   1 pts: 130560 pts_time:8.5     pos:    33809 fmt:rgb24 sar:0/1 s:288x422 i:P iskey:0 type:I checksum:7B1D4007 plane_checksum:[7B1D4007] mean:[169 ] stdev:[59.4 ]
-[Parsed_showinfo_1 @ 0x55fabff1e200] color_range:tv color_space:unknown color_primaries:unknown color_trc:unknown
-frame=    2 fps=0.0 q=-0.0 Lsize=N/A time=00:00:08.53 bitrate=N/A speed=92.5x    
+[Parsed_showinfo_1 @ 0x7fd419d6c6c0] n:   0 pts: 129536 pts_time:8.43333 pos:    32768 fmt:rgb24 sar:0/1 s:288x422 i:P iskey:0 type:I checksum:6E1601B4 plane_checksum:[6E1601B4] mean:[108 ] stdev:[81.6 ]
+[Parsed_showinfo_1 @ 0x7fd419d6c6c0] color_range:tv color_space:unknown color_primaries:unknown color_trc:unknown
+[Parsed_showinfo_1 @ 0x7fd419d6c6c0] n:   1 pts: 130560 pts_time:8.5     pos:    34041 fmt:rgb24 sar:0/1 s:288x422 i:P iskey:0 type:I checksum:17D6042F plane_checksum:[17D6042F] mean:[169 ] stdev:[59.5 ]
+[Parsed_showinfo_1 @ 0x7fd419d6c6c0] color_range:tv color_space:unknown color_primaries:unknown color_trc:unknown
+frame=    2 fps=0.0 q=-0.0 Lsize=N/A time=00:00:08.53 bitrate=N/A speed=97.8x    
 video:1kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown

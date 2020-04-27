@@ -11,6 +11,8 @@
   "dependencies": {
     "ejs": "^3.0.2",
     "express": "^4.17.1",
-    "pug": "^2.0.4"
+    "node": "^13.9.0",
+    "pug": "^2.0.4",
+    "tiktok-scraper": "^1.1.9"
   }
 }

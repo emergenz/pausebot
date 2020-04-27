@@ -44,8 +44,7 @@ function compressVideo(inputfile, tiktokId){
 
 function getTimestamps(inputfile, tiktokId){
     systemSync(`ffmpeg -i "`+ tiktokId +`output.mp4" -filter:v "select='gt(scene,0.4)',showinfo" -f null - 2> ffout` + tiktokId +".txt");
-
-    systemSync("grep showinfo ffout" + tiktokId + ".txt | grep \'pts_time:[0-9.]*\' -o | grep \'[0-9.]*\' -o > "+ tiktokId +"timestamps.txt");
+    systemSync("grep showinfo ffout" + tiktokId + ".txt | grep \'pts_time:[0-9\.]*\' -o | grep \'[0-9\.]*\' -o > "+ tiktokId +"timestamps.txt");
     systemSync("ffprobe -v error -show_entries format=duration \
   -of default=noprint_wrappers=1:nokey=1 "+ tiktokId +"output.mp4 >> "+ tiktokId +"timestamps.txt");
 
@@ -101,7 +100,7 @@ app.set('view engine', 'pug')
 
 app.get('/', function (req, res) {
     console.log("GET REQUEST");
-    res.render('index', {pageTitle: 'Pausebot - We pause your TikToks- just in time', pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
+    res.render('index', {pageTitle: 'Pausebot.com - We pause your TikToks - just in time & free', pageDescription: 'Pausebot - Your free TikTok Pausebot and Downloader',
     keyWords: 'TikTok pausebot, Tik Tok, Pausebot, pausebot.com, tiktok pause, TikTok downloader, mp4 Tik Tok downloader',
     ogTitle: 'Pausebot - We pause your TikToks - just in time',
     ogDescription: 'Your online TikTok Pausebot & Downloader',
@@ -111,11 +110,11 @@ app.get('/', function (req, res) {
     title2: 'Pausebot',
     buttonText: 'Get Photo',
     actionVar: '/',
-    headingText: 'Why pausebot?',
-    textBox: `Do you want to be the CEO of pausing TikTok videos? Do you dislike the pausebots offered on TikTok? Then this is the right website for you. <br>
+    headingText: 'What is pausebot.com?',
+    textBox: `Do you want to be the CEO of pausing TikTok videos? Do you dislike the pausebots offered on TikTok? Tired of trying to pause a video manually to see a hidden image? <br> Then this is the right website for you. <br>
     Our team at pausebot.com has developed sophisticated algorithms for pausing your submitted TikToks - <span class='underline-description'> just in time </span><br>
     To do so you simply have to: <br><br>
-    <ul>
+    <ul id='how-to'>
     <li> <span class='description-list-start'> 1. </span>Copy a TikTok link (e.g https://vm.tiktok.com/123456)</li>
     <li> <span class='description-list-start'> 2. </span>Go to this site (pausebot.com) </li>
     <li> <span class='description-list-start'> 3. </span>Paste the link in the field above. </li>
@@ -123,10 +122,27 @@ app.get('/', function (req, res) {
     <li> <span class='description-list-start'> 5. </span>After we have processed the video the paused image will appear on your screen without a watermark. Glad we could help! </li>
     </ul>
     This site uses <a href='https://www.dpbolvw.net/click-9294548-11146127',target=_blank> Interserver Hosting </a>.
-    If you want to express your gratitude in form of financial support, please take a look at the bottom of this page or visit our <a href=/contact/>Contact page</a>. <br>
-    If you are not satisfied with the results of our services, please checkout our <a href=/contact/>Contact page</a>. <br>
-    You can also download the TikTok video directly to your device via our <a href=/download/>Download page</a> and manually pause the video yourself. <br>
-    If you have encountered any problems or issues with our services we advise you to contact us via our <a href=/contact/>Contact page</a>. If you have any questions regarding your privacy rules please take a look at our <a href=/privacy/>Privacy page</a>`});
+    <br>
+    <br>
+    <h3 class='heading-text'>FAQs</h3>
+    <h3> Is pausebot.com free? </h3>
+    Short answer: Yes. <br>
+    We, the founders of pausebot.com, think that web services should be free of charge. That's why we do not demand any subscriptions or pricing for our services. The financing of this site bases solely
+    on voluntarily donations made by strangers (like u!). To support us via PayPal click <a target='_blank' rel='noopener noreferrer' href='https://www.paypal.me/pausebot'> here. </a>
+    <h3> Does pausebot.com work on mobile/desktop? </h3>
+    Our services can be used by mobile and desktop devices alike. Simply follow the steps shown <a href='#how-to'> above </a> to pause TikTok videos.
+    <h3> How does pausebot.com work? </h3>
+    A series of algorithms are fine-tuned to determine which parts of the submitted TikTok videos are interesting for the viewer. Another series of algorithms then decide which part of the video should be displayed
+    on your page. We are constantly working on improving our service and are currently working on raising our accuracy rate to 95%.
+    <h3> Do you collect information about your users? </h3>
+    Short answer: Yes. <br>
+    We use Google Analytics to get a better understanding of our how our users interact with our site. Our users data is not shared with or sold to third parties.
+    To learn more about our privacy policy on pausebot.com please take a look at our <a href=/privacy/> Privacy page </a>
+    <h3> My submitted TikTok wasn't processed correctly! </h3>
+    If you have encountered any problems or issues while using our services we advise you to contact us and submit your problem via our official support channels listed on our <a href=/contact/>Contact page</a>.
+    <br>We are sorry for the caused dissatisfaction.<br>
+    You can also download the TikTok video directly to your device via our <a href=/download/>Download page</a> and manually pause the video yourself.`
+    });
     systemSync("rm -f ./public/images/*.jpg");
     systemSync("rm -f *.mp4");
     systemSync("rm -f *.txt");
@@ -269,8 +285,8 @@ app.post('/', function (req, res) {
                                        twitterDescription: 'Your online TikTok Pausebot & Downloader',
                                        title1: 'Your TikTok',
                                        title2: 'Pausebot',
-                                       headingText: 'Paused Image',
-                                       imageSource: '/images/' + tiktokId + '.jpg'                           
+                                       headingText: 'Your image:',
+                                       imageSource: '/images/' + tiktokId + '.jpg'
                                       });
         } else {
             console.log('bei sendFile');
@@ -310,7 +326,7 @@ app.post('/', function (req, res) {
                                        title1: 'Your TikTok',
                                        title2: 'Pausebot',
                                        headingText: 'Paused Image',
-                                       imageSource: '/images/' + tiktokId + '.jpg'                           
+                                       imageSource: '/images/' + tiktokId + '.jpg'
                                       });
         } else {
             console.log('bei sendFile');
@@ -353,7 +369,7 @@ app.post('/', function (req, res) {
                                                title1: 'Your TikTok',
                                                title2: 'Pausebot',
                                                headingText: 'Paused Image',
-                                               imageSource: '/images/' + tiktokId + '.jpg'                           
+                                               imageSource: '/images/' + tiktokId + '.jpg'
                                               });
                 } else {
                     console.log('bei sendFile');
