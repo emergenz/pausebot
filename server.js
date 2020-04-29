@@ -271,12 +271,12 @@ app.post('/', function (req, res) {
             getScreenshot(inputfile, tiktokId);
         } catch (error) {
             console.log('bei getScreenshot');
-            systemSync('echo '+ link +' >> nopause');
+            systemSync('echo '+ link +' >> nopause.log');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
         }
         //res.render('index');
         if (fs.existsSync('./public/images/' + tiktokId + ".jpg")) {
-            systemSync('echo '+ link +' >> paused');
+            systemSync('echo '+ link +' >> paused.log');
             res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
                                        pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
                                        ogTitle: 'Pausebot - We pause your TikToks - just in time',
@@ -290,7 +290,7 @@ app.post('/', function (req, res) {
                                       });
         } else {
             console.log('bei sendFile');
-            systemSync('echo '+ link +' >> nopause');
+            systemSync('echo '+ link +' >> nopause.log');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
         }
 
@@ -313,10 +313,10 @@ app.post('/', function (req, res) {
         getScreenshot(inputfile, tiktokId);
         } catch (error) {
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
-            systemSync('echo '+ link +' >> nopause');
+            systemSync('echo '+ link +' >> nopause.log');
         }
         if (fs.existsSync('./public/images/' + tiktokId + ".jpg")) {
-            systemSync('echo '+ link +' >> paused');
+            systemSync('echo '+ link +' >> paused.log');
             res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
                                        pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
                                        ogTitle: 'Pausebot - We pause your TikToks - just in time',
@@ -331,7 +331,7 @@ app.post('/', function (req, res) {
         } else {
             console.log('bei sendFile');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
-            systemSync('echo '+ link +' >> nopause');
+            systemSync('echo '+ link +' >> nopause.log');
         }
     } else {
         try {
@@ -341,7 +341,7 @@ app.post('/', function (req, res) {
                     var tiktokId = results;
                 } catch (error) {
                     res.render('errorhandling',{tite: 'Error', text: 'Your link isn\'t right.'});
-                    systemSync('echo '+ link +' >> nopause');
+                    systemSync('echo '+ link +' >> nopause.log');
                 }
                 var inputfile = tiktokId + ".mp4";
                 link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
@@ -350,16 +350,16 @@ app.post('/', function (req, res) {
                     getVideo(inputfile, tiktokId);
                 } catch (error) {
                     res.render('errorhandling',{tite: 'Error', text: 'Sorry, this video can\'t be paused. Please try again.'});
-                    systemSync('echo '+ link +' >> nopause');
+                    systemSync('echo '+ link +' >> nopause.log');
                 }
                 try {
                     getScreenshot(inputfile, tiktokId);
                 } catch (error){
                     res.render('errorhandling',{tite: 'Error', text: 'Sorry, this video can\'t be paused. Please try again.'});
-                    systemSync('echo '+ link +' >> nopause');
+                    systemSync('echo '+ link +' >> nopause.log');
                 }
                 if (fs.existsSync('./public/images/' + tiktokId + ".jpg")) {
-                    systemSync('echo '+ link +' >> paused');
+                    systemSync('echo '+ link +' >> paused.log');
                     res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
                                                pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
                                                ogTitle: 'Pausebot - We pause your TikToks - just in time',
@@ -374,12 +374,12 @@ app.post('/', function (req, res) {
                 } else {
                     console.log('bei sendFile');
                     res.render('errorhandling',{tite: 'Error', text : 'Sorry, this video can\'t be paused  Please try again.'});
-                    systemSync('echo '+ link +' >> nopause');
+                    systemSync('echo '+ link +' >> nopause.log');
                 }
             });
         } catch (error) {
             res.render('errorhandling',{tite: 'Error', text: 'Sorry, this video can\'t be paused. Please try again.'});
-            systemSync('echo '+ link +' >> nopause');
+            systemSync('echo '+ link +' >> nopause.log');
         }
     }
 })
