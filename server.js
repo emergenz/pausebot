@@ -7,6 +7,7 @@ const http = require('http');
 const fs = require('fs')
 const child_process = require('child_process');
 const patt = /(?:\/)(\d+)/;
+var idList = [];
 function systemSync(cmd) {
   return child_process.execSync(cmd).toString();
 }
@@ -43,8 +44,8 @@ function compressVideo(inputfile, tiktokId){
 }
 
 function getTimestamps(inputfile, tiktokId){
-    systemSync(`ffmpeg -i "`+ tiktokId +`output.mp4" -filter:v "select='gt(scene,0.4)',showinfo" -f null - 2> ffout` + tiktokId +".txt");
-    systemSync("grep showinfo ffout" + tiktokId + ".txt | grep \'pts_time:[0-9\.]*\' -o | grep \'[0-9\.]*\' -o > "+ tiktokId +"timestamps.txt");
+    systemSync(`ffmpeg -i "`+ tiktokId +`output.mp4" -filter:v "select='gt(scene,0.4)',showinfo" -f null - 2> ` + tiktokId +"ffout.txt");
+    systemSync("grep showinfo " + tiktokId + "ffout.txt | grep \'pts_time:[0-9\.]*\' -o | grep \'[0-9\.]*\' -o > "+ tiktokId +"timestamps.txt");
     systemSync("ffprobe -v error -show_entries format=duration \
   -of default=noprint_wrappers=1:nokey=1 "+ tiktokId +"output.mp4 >> "+ tiktokId +"timestamps.txt");
 
@@ -142,10 +143,13 @@ app.get('/', function (req, res) {
     If you have encountered any problems or issues while using our services we advise you to contact us and submit your problem via our official support channels listed on our <a href=/contact/>Contact page</a>.
     <br>We are sorry for the caused dissatisfaction.<br>
     You can also download the TikTok video directly to your device via our <a href=/download/>Download page</a> and manually pause the video yourself.`
-    });
-    systemSync("rm -f ./public/images/*.jpg");
-    systemSync("rm -f *.mp4");
-    systemSync("rm -f *.txt");
+                        });
+    //rm something
+    for (i=0; i < idList.length; i++){
+        systemSync('rm -f ./public/images/' +idList[i]+ '.jpg');
+        systemSync('rm -f ' +idList[i]+ '*');
+    }
+    
 })
 
 app.get('/download/', function(req, res){
@@ -231,7 +235,7 @@ app.get('/privacy/', function(req, res) {
     pausebot.com has the discretion to update this privacy policy at any time. When we do, we will post a notification on the main page of our site, revise the updated date at the bottom of this page. We encourage users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.
     <h4 class='small-text-box-heading'>Your acceptance of these terms</h4>
     By using this site, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our site. Your continued use of the site following the posting of changes to this policy will be deemed your acceptance of those changes.`
-});
+                          });
 })
 
 app.get('/wp-login', function(req, res){
@@ -288,6 +292,9 @@ app.post('/', function (req, res) {
                                        headingText: 'Your image:',
                                        imageSource: '/images/' + tiktokId + '.jpg'
                                       });
+            idList.push(tiktokId);
+            console.log(idList);
+
         } else {
             console.log('bei sendFile');
             systemSync('echo '+ link +' >> nopause.log');
@@ -369,8 +376,8 @@ app.post('/', function (req, res) {
                                                title1: 'Your TikTok',
                                                title2: 'Pausebot',
                                                headingText: 'Paused Image',
-                                               imageSource: '/images/' + tiktokId + '.jpg'
-                                              });
+                                               imageSource: '/images/' + tiktokId + '.jpg'});
+                                              
                 } else {
                     console.log('bei sendFile');
                     res.render('errorhandling',{tite: 'Error', text : 'Sorry, this video can\'t be paused  Please try again.'});
