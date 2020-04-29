@@ -177,7 +177,12 @@ app.get('/download/', function(req, res){
     This service is a free online TikTok video donwloader. There is no need to install any extensions or pay any service-fee: Our service will always stay free and public.
     We automatically remove the watermark from the TikTok video for you. Our service works for Android, iOS and desktop devices alike. Just follow the steps presented above to download your TikTok video as mp4 to your device's storage.
     We do not store any information about our users, nor do we permanently save the downloaded videos. If you are experiencing any issues with our services we advise you to contact us via our official channels provided on our <a href=/contact/>Contact page</a>`
-    });
+                        });
+    //rm something
+    for (i=0; i < idList.length; i++){
+        systemSync('rm -f ./public/images/' +idList[i]+ '.jpg');
+        systemSync('rm -f ' +idList[i]+ '*');
+    }
 })
 
 app.get('/contact/', function (req, res) {
@@ -293,7 +298,6 @@ app.post('/', function (req, res) {
                                        imageSource: '/images/' + tiktokId + '.jpg'
                                       });
             idList.push(tiktokId);
-            console.log(idList);
 
         } else {
             console.log('bei sendFile');
@@ -335,6 +339,7 @@ app.post('/', function (req, res) {
                                        headingText: 'Paused Image',
                                        imageSource: '/images/' + tiktokId + '.jpg'
                                       });
+            idList.push(tiktokId);
         } else {
             console.log('bei sendFile');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
@@ -377,7 +382,7 @@ app.post('/', function (req, res) {
                                                title2: 'Pausebot',
                                                headingText: 'Paused Image',
                                                imageSource: '/images/' + tiktokId + '.jpg'});
-                                              
+                    idList.push(tiktokId);
                 } else {
                     console.log('bei sendFile');
                     res.render('errorhandling',{tite: 'Error', text : 'Sorry, this video can\'t be paused  Please try again.'});
@@ -410,6 +415,7 @@ app.post('/download/', function (req, res) {
         console.log(link);
         //res.render('index');
         res.download(inputfile);
+        idList.push(tiktokId);
 
     } else if(/\d{10}/.test(link)===true){
         try {
@@ -427,6 +433,7 @@ app.post('/download/', function (req, res) {
         }
         console.log(link);
         res.download(inputfile);
+        idList.push(tiktokId);
 
     } else {
         try {
@@ -438,6 +445,7 @@ app.post('/download/', function (req, res) {
             getVideo(inputfile, tiktokId);
             console.log(link);
             res.download(inputfile);
+            idList.push(tiktokId);
         });
         } catch (error) {
             res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
