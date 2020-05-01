@@ -172,10 +172,6 @@ app.get('/download/', function(req, res){
     We do not store any information about our users, nor do we permanently save the downloaded videos. If you are experiencing any issues with our services we advise you to contact us via our official channels provided on our <a href=/contact/>Contact page</a>`
                         });
     //rm something
-    for (i=0; i < idList.length; i++){
-        systemSync('rm -f ./public/images/' +idList[i]+ '.jpg');
-        systemSync('rm -f ' +idList[i]+ '*');
-    }
 })
 
 app.get('/contact/', function (req, res) {
@@ -295,7 +291,6 @@ app.post('/', async function (req, res) {
             setTimeout(function(){
                 systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
             }, 3000);
-            idList.push(tiktokId);
 
         } else {
             console.log('bei sendFile');
@@ -342,7 +337,6 @@ app.post('/', async function (req, res) {
             setTimeout(function(){
                 systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
             }, 3000);
-            idList.push(tiktokId);
         } else {
             console.log('bei sendFile');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
@@ -390,7 +384,6 @@ app.post('/', async function (req, res) {
                     setTimeout(function(){
                         systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
                     }, 3000);
-                    idList.push(tiktokId);
                 } else {
                     console.log('bei sendFile');
                     res.render('errorhandling',{tite: 'Error', text : 'Sorry, this video can\'t be paused  Please try again.'});
@@ -428,7 +421,6 @@ app.post('/download/', function (req, res) {
         setTimeout(function(){
             systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
         }, 3000);
-        idList.push(tiktokId);
 
     } else if(/\d{10}/.test(link)===true){
         try {
@@ -451,7 +443,6 @@ app.post('/download/', function (req, res) {
         setTimeout(function(){
             systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
         }, 3000);
-        idList.push(tiktokId);
 
     } else {
         try {
@@ -468,7 +459,6 @@ app.post('/download/', function (req, res) {
             setTimeout(function(){
                 systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
             }, 3000);
-            idList.push(tiktokId);
         });
         } catch (error) {
             res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
