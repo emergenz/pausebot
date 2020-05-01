@@ -7,7 +7,6 @@ const http = require('http');
 const fs = require('fs')
 const child_process = require('child_process');
 const patt = /(?:\/)(\d+)/;
-var idList = [];
 function systemSync(cmd) {
   return child_process.execSync(cmd).toString();
 }
@@ -144,12 +143,6 @@ app.get('/', function (req, res) {
     <br>We are sorry for the caused dissatisfaction.<br>
     You can also download the TikTok video directly to your device via our <a href=/download/>Download page</a> and manually pause the video yourself.`
                         });
-    //rm something
-    for (i=0; i < idList.length; i++){
-        systemSync('rm -f ./public/images/' +idList[i]+ '.jpg');
-        systemSync('rm -f ' +idList[i]+ '*');
-    }
-    
 })
 
 app.get('/download/', function(req, res){
@@ -256,7 +249,7 @@ app.get('/sitemap.xml', function(req, res){
     res.sendFile("public/sitemap.xml", {root: __dirname});
 })
 
-app.post('/', function (req, res) {
+app.post('/', async function (req, res) {
 
     link = req.body.link;
 
@@ -286,7 +279,7 @@ app.post('/', function (req, res) {
         //res.render('index');
         if (fs.existsSync('./public/images/' + tiktokId + ".jpg")) {
             systemSync('echo '+ link +' >> paused.log');
-            res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
+            await res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
                                        pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
                                        ogTitle: 'Pausebot - We pause your TikToks - just in time',
                                        ogDescription: 'Your online TikTok Pausebot & Downloader',
@@ -296,7 +289,12 @@ app.post('/', function (req, res) {
                                        title2: 'Pausebot',
                                        headingText: 'Your image:',
                                        imageSource: '/images/' + tiktokId + '.jpg'
-                                      });
+                                            });
+            console.log('das sollte zum schluss kommen');
+            systemSync('rm -f ' +tiktokId+ '*');
+            setTimeout(function(){
+                systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
+            }, 3000);
             idList.push(tiktokId);
 
         } else {
@@ -328,7 +326,7 @@ app.post('/', function (req, res) {
         }
         if (fs.existsSync('./public/images/' + tiktokId + ".jpg")) {
             systemSync('echo '+ link +' >> paused.log');
-            res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
+            await res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
                                        pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
                                        ogTitle: 'Pausebot - We pause your TikToks - just in time',
                                        ogDescription: 'Your online TikTok Pausebot & Downloader',
@@ -339,6 +337,11 @@ app.post('/', function (req, res) {
                                        headingText: 'Paused Image',
                                        imageSource: '/images/' + tiktokId + '.jpg'
                                       });
+            console.log('das sollte zum schluss kommen');
+            systemSync('rm -f ' +tiktokId+ '*');
+            setTimeout(function(){
+                systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
+            }, 3000);
             idList.push(tiktokId);
         } else {
             console.log('bei sendFile');
@@ -382,6 +385,11 @@ app.post('/', function (req, res) {
                                                title2: 'Pausebot',
                                                headingText: 'Paused Image',
                                                imageSource: '/images/' + tiktokId + '.jpg'});
+                    console.log('das sollte zum schluss kommen');
+                    systemSync('rm -f ' +tiktokId+ '*');
+                    setTimeout(function(){
+                        systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
+                    }, 3000);
                     idList.push(tiktokId);
                 } else {
                     console.log('bei sendFile');
@@ -415,6 +423,11 @@ app.post('/download/', function (req, res) {
         console.log(link);
         //res.render('index');
         res.download(inputfile);
+        console.log('das sollte zum schluss kommen');
+        systemSync('rm -f ' +tiktokId+ '*');
+        setTimeout(function(){
+            systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
+        }, 3000);
         idList.push(tiktokId);
 
     } else if(/\d{10}/.test(link)===true){
@@ -433,6 +446,11 @@ app.post('/download/', function (req, res) {
         }
         console.log(link);
         res.download(inputfile);
+        console.log('das sollte zum schluss kommen');
+        systemSync('rm -f ' +tiktokId+ '*');
+        setTimeout(function(){
+            systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
+        }, 3000);
         idList.push(tiktokId);
 
     } else {
@@ -445,6 +463,11 @@ app.post('/download/', function (req, res) {
             getVideo(inputfile, tiktokId);
             console.log(link);
             res.download(inputfile);
+            console.log('das sollte zum schluss kommen');
+            systemSync('rm -f ' +tiktokId+ '*');
+            setTimeout(function(){
+                systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
+            }, 3000);
             idList.push(tiktokId);
         });
         } catch (error) {
