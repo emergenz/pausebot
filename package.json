@@ -9,7 +9,6 @@
   "author": "franz",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.0.2",
     "express": "^4.17.1",
     "node": "^13.9.0",
     "pug": "^2.0.4",

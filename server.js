@@ -10,6 +10,7 @@ const patt = /(?:\/)(\d+)/;
 function systemSync(cmd) {
   return child_process.execSync(cmd).toString();
 }
+getInteger = 0;
 
 function finder(link,callback){
     https.get(link,(resp)=>{
@@ -143,6 +144,13 @@ app.get('/', function (req, res) {
     <br>We are sorry for the caused dissatisfaction.<br>
     You can also download the TikTok video directly to your device via our <a href=/download/>Download page</a> and manually pause the video yourself.`
                         });
+    //rm something
+    getInteger = getInteger+1;
+    console.log(getInteger);
+    if(getInteger >= 50){
+        systemSync('rm -f ./public/images/*.jpg');
+        getInteger = 0;
+    }
 })
 
 app.get('/download/', function(req, res){
@@ -171,7 +179,7 @@ app.get('/download/', function(req, res){
     We automatically remove the watermark from the TikTok video for you. Our service works for Android, iOS and desktop devices alike. Just follow the steps presented above to download your TikTok video as mp4 to your device's storage.
     We do not store any information about our users, nor do we permanently save the downloaded videos. If you are experiencing any issues with our services we advise you to contact us via our official channels provided on our <a href=/contact/>Contact page</a>`
                         });
-    //rm something
+   
 })
 
 app.get('/contact/', function (req, res) {
@@ -288,9 +296,6 @@ app.post('/', async function (req, res) {
                                             });
             console.log('das sollte zum schluss kommen');
             systemSync('rm -f ' +tiktokId+ '*');
-            setTimeout(function(){
-                systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
-            }, 3000);
 
         } else {
             console.log('bei sendFile');
@@ -334,9 +339,6 @@ app.post('/', async function (req, res) {
                                       });
             console.log('das sollte zum schluss kommen');
             systemSync('rm -f ' +tiktokId+ '*');
-            setTimeout(function(){
-                systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
-            }, 3000);
         } else {
             console.log('bei sendFile');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
@@ -381,9 +383,6 @@ app.post('/', async function (req, res) {
                                                imageSource: '/images/' + tiktokId + '.jpg'});
                     console.log('das sollte zum schluss kommen');
                     systemSync('rm -f ' +tiktokId+ '*');
-                    setTimeout(function(){
-                        systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
-                    }, 3000);
                 } else {
                     console.log('bei sendFile');
                     res.render('errorhandling',{tite: 'Error', text : 'Sorry, this video can\'t be paused  Please try again.'});
@@ -418,9 +417,6 @@ app.post('/download/', function (req, res) {
         res.download(inputfile);
         console.log('das sollte zum schluss kommen');
         systemSync('rm -f ' +tiktokId+ '*');
-        setTimeout(function(){
-            systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
-        }, 3000);
 
     } else if(/\d{10}/.test(link)===true){
         try {
@@ -440,9 +436,6 @@ app.post('/download/', function (req, res) {
         res.download(inputfile);
         console.log('das sollte zum schluss kommen');
         systemSync('rm -f ' +tiktokId+ '*');
-        setTimeout(function(){
-            systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
-        }, 3000);
 
     } else {
         try {
@@ -456,9 +449,6 @@ app.post('/download/', function (req, res) {
             res.download(inputfile);
             console.log('das sollte zum schluss kommen');
             systemSync('rm -f ' +tiktokId+ '*');
-            setTimeout(function(){
-                systemSync('rm -f ./public/images/' +tiktokId+ '.jpg');
-            }, 3000);
         });
         } catch (error) {
             res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
