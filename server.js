@@ -253,7 +253,7 @@ app.get('/sitemap.xml', function(req, res){
     res.sendFile("public/sitemap.xml", {root: __dirname});
 })
 
-app.post('/', async function (req, res) {
+app.post('/', function (req, res) {
 
     link = req.body.link;
 
@@ -283,7 +283,7 @@ app.post('/', async function (req, res) {
         //res.render('index');
         if (fs.existsSync('./public/images/' + tiktokId + ".jpg")) {
             systemSync('echo '+ link +' >> paused.log');
-            await res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
+            res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
                                        pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
                                        ogTitle: 'Pausebot - We pause your TikToks - just in time',
                                        ogDescription: 'Your online TikTok Pausebot & Downloader',
@@ -326,7 +326,7 @@ app.post('/', async function (req, res) {
         }
         if (fs.existsSync('./public/images/' + tiktokId + ".jpg")) {
             systemSync('echo '+ link +' >> paused.log');
-            await res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
+            res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
                                        pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
                                        ogTitle: 'Pausebot - We pause your TikToks - just in time',
                                        ogDescription: 'Your online TikTok Pausebot & Downloader',
