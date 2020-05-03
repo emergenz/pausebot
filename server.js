@@ -396,7 +396,7 @@ app.post('/', function (req, res) {
     }
 })
 
-app.post('/download/', function (req, res) {
+app.post('/download/', async function (req, res) {
     link = req.body.link;
     if(link.includes("/video/")){
         try {
@@ -414,9 +414,9 @@ app.post('/download/', function (req, res) {
         }
         console.log(link);
         //res.render('index');
-        res.download(inputfile);
+        await res.download(inputfile);
         console.log('das sollte zum schluss kommen');
-        systemSync('rm -f ' +tiktokId+ '*');
+        //systemSync('rm -f ' +tiktokId+ '*');
 
     } else if(/\d{10}/.test(link)===true){
         try {
@@ -433,20 +433,20 @@ app.post('/download/', function (req, res) {
             res.render('errorhandling',{tite: 'Error', text: 'The link you entered is wrong. Please try again.'});
         }
         console.log(link);
-        res.download(inputfile);
+        await res.download(inputfile);
         console.log('das sollte zum schluss kommen');
         systemSync('rm -f ' +tiktokId+ '*');
 
     } else {
         try {
-        finder(link,function(results){
+        finder(link,async function(results){
             console.log("JO NO NUMBER");
             var tiktokId = results;
             var inputfile = tiktokId + ".mp4";
             link = "https://www.tiktok.com/@tiktok/video/" + tiktokId;
             getVideo(inputfile, tiktokId);
             console.log(link);
-            res.download(inputfile);
+            await res.download(inputfile);
             console.log('das sollte zum schluss kommen');
             systemSync('rm -f ' +tiktokId+ '*');
         });
