@@ -415,8 +415,9 @@ app.post('/download/', async function (req, res) {
         console.log(link);
         //res.render('index');
         await res.download(inputfile);
+        setTimeout(10);
         console.log('das sollte zum schluss kommen');
-        //systemSync('rm -f ' +tiktokId+ '*');
+        systemSync('rm -f ' +tiktokId+ '*');
 
     } else if(/\d{10}/.test(link)===true){
         try {
@@ -434,6 +435,7 @@ app.post('/download/', async function (req, res) {
         }
         console.log(link);
         await res.download(inputfile);
+        setTimeout(10);
         console.log('das sollte zum schluss kommen');
         systemSync('rm -f ' +tiktokId+ '*');
 
@@ -447,6 +449,7 @@ app.post('/download/', async function (req, res) {
             getVideo(inputfile, tiktokId);
             console.log(link);
             await res.download(inputfile);
+            setTimeout(10);
             console.log('das sollte zum schluss kommen');
             systemSync('rm -f ' +tiktokId+ '*');
         });
