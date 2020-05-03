@@ -414,10 +414,12 @@ app.post('/download/', async function (req, res) {
         }
         console.log(link);
         //res.render('index');
+        
         await res.download(inputfile);
-        setTimeout(10);
-        console.log('das sollte zum schluss kommen');
-        systemSync('rm -f ' +tiktokId+ '*');
+        setTimeout(function(){
+            console.log('das sollte zum schluss kommen');
+            systemSync('rm -f ' +tiktokId+ '*');
+        },10);
 
     } else if(/\d{10}/.test(link)===true){
         try {
@@ -434,10 +436,12 @@ app.post('/download/', async function (req, res) {
             res.render('errorhandling',{tite: 'Error', text: 'The link you entered is wrong. Please try again.'});
         }
         console.log(link);
+        
         await res.download(inputfile);
-        setTimeout(10);
-        console.log('das sollte zum schluss kommen');
-        systemSync('rm -f ' +tiktokId+ '*');
+        setTimeout(function(){
+            console.log('das sollte zum schluss kommen');
+            systemSync('rm -f ' +tiktokId+ '*');
+        },10);
 
     } else {
         try {
@@ -449,9 +453,10 @@ app.post('/download/', async function (req, res) {
             getVideo(inputfile, tiktokId);
             console.log(link);
             await res.download(inputfile);
-            setTimeout(10);
-            console.log('das sollte zum schluss kommen');
-            systemSync('rm -f ' +tiktokId+ '*');
+            setTimeout(function(){
+                console.log('das sollte zum schluss kommen');
+                systemSync('rm -f ' +tiktokId+ '*');
+            },10);
         });
         } catch (error) {
             res.render('errorhandling',{tite: 'Error', text: 'Please check if your link is right.'});
