@@ -116,7 +116,7 @@ app.get('/sitemap.xml', function(req, res){
 app.post('/', function (req, res) {
 
     link = req.body.link;
-    
+
     if(link.includes("/video/")){
         var tiktokId = link.match(patt)[1];
         console.log("JO INCLUDES VIDEO");
@@ -134,7 +134,7 @@ app.post('/', function (req, res) {
         systemSync("rm "+ tiktokId +"output.mp4");
         systemSync("rm ffout" + tiktokId + ".txt");
         systemSync("rm " + tiktokId + "timestamps.txt");
-        
+
     } else if(/\d{10}/.test(link)===true){
         var tiktokId = link.match(patt)[1];
         console.log("JO INCLUDES NUMBER");
@@ -151,7 +151,7 @@ app.post('/', function (req, res) {
         systemSync("rm "+ tiktokId +"output.mp4");
         systemSync("rm ffout" + tiktokId + ".txt");
         systemSync("rm " + tiktokId + "timestamps.txt");
-        
+
     } else {
         try {
         finder(link,function(results){
@@ -181,4 +181,3 @@ app.use(function(req, res, next){
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 })
-
