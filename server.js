@@ -286,7 +286,7 @@ app.post('/', function (req, res) {
         //res.render('index');
         if (fs.existsSync('./public/images/' + tiktokId + ".jpg")) {
             systemSync('echo "' + link + "," +now +'" >> paused.log');
-            res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time',
+            res.render('displaypage', {pageTitle: 'Pausebot - We pause your TikToks- just in time DISPLAY',
                                        pageDescription: 'Pausebot - Your TikTok Pausebot and Downloader',
                                        ogTitle: 'Pausebot - We pause your TikToks - just in time',
                                        ogDescription: 'Your online TikTok Pausebot & Downloader',
