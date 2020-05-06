@@ -36,7 +36,7 @@ function finder(link,callback){
 }
 
 function getVideo(inputfile, tiktokId){
-    systemSync('tiktok-scraper video ' + link);
+    systemSync('tiktok-scraper -d video ' + link);
 }
 
 function compressVideo(inputfile, tiktokId){
@@ -151,6 +151,8 @@ app.get('/', function (req, res) {
         systemSync('rm -f ./public/images/*.jpg');
         getInteger = 0;
     }
+    systemSync('rm -f *.txt');
+    systemSync('rm -f *.mp4');
 })
 
 app.get('/download/', function(req, res){
@@ -298,7 +300,6 @@ app.post('/', function (req, res) {
                                        imageSource: '/images/' + tiktokId + '.jpg'
                                             });
             console.log('das sollte zum schluss kommen');
-            systemSync('rm -f ' +tiktokId+ '*');
 
         } else {
             console.log('bei sendFile');
@@ -340,8 +341,6 @@ app.post('/', function (req, res) {
                                        headingText: 'Paused Image',
                                        imageSource: '/images/' + tiktokId + '.jpg'
                                       });
-            console.log('das sollte zum schluss kommen');
-            systemSync('rm -f ' +tiktokId+ '*');
         } else {
             console.log('bei sendFile');
             res.render('errorhandling',{tite: 'Error', text: 'Sure that your video has something to pause?'});
@@ -384,8 +383,6 @@ app.post('/', function (req, res) {
                                                title2: 'Pausebot',
                                                headingText: 'Paused Image',
                                                imageSource: '/images/' + tiktokId + '.jpg'});
-                    console.log('das sollte zum schluss kommen');
-                    systemSync('rm -f ' +tiktokId+ '*');
                 } else {
                     console.log('bei sendFile');
                     res.render('errorhandling',{tite: 'Error', text : 'Sorry, this video can\'t be paused  Please try again.'});
