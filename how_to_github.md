@@ -36,3 +36,30 @@ at ClientRequest.<anonymous> (/var/www/virtual/zebo/pausebot.com/server.js:31:13
 }
 [zebo@tuttle pausebot.com]$
 [0] <e:/var/www/virtual/zebo/pausebot.com* "tuttle.uberspace.de" 00:59 21-Apr-20
+                                           
+                                           
+# Server neustarten
+ssh zebo@tuttle.uberspace.de
+
+tmux a
+
+cd /var/www/virtual/zebo/pausebot.com
+
+forever stop server.js
+
+forever start server.js
+
+strg+b, d
+
+# Server starten
+ssh zebo@tuttle.uberspace.de
+
+tmux
+
+(falls ein grüner Balken unten ist, dann bist du in tmux drinnen)
+
+cd /var/www/virtual/zebo/pausebot.com
+
+forever start server.js
+
+strg+b, d
