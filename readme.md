@@ -4,6 +4,9 @@
   </a>
 </h1>
 
+<p align="center">
+  <strong>Use once, pause anywhere:</strong><br>
+  A website for automated pausing of tiktok-videos.
+</p>
 
-A website for automated pausing of tiktok-videos.
 
