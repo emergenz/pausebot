@@ -8,9 +8,9 @@ The [Open Source Guides](https://opensource.guide/) website has a collection of 
 * [Building Welcoming Communities](https://opensource.guide/building-community/)
 
 
-### [Code of Conduct](https://github.com/emergenz/pausebot/CODE_OF_CONDUNCT.md)
+### [Code of Conduct](https://github.com/emergenz/pausebot/blob/master/CODE_OF_CONDUNCT.md)
 
-As a reminder, all contributors are expected to adhere to the [Code of Conduct](https://github.com/emergenz/pausebot/CODE_OF_CONDUNCT.md).
+As a reminder, all contributors are expected to adhere to the [Code of Conduct](https://github.com/emergenz/pausebot/blob/master/CODE_OF_CONDUNCT.md).
 
 ## Ways to Contribute
 
