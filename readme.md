@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="http://enigmatic-bastion-17314.herokuapp.com/">
-    React Native
+    pausebot
   </a>
 </h1>
 
