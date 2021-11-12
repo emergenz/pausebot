@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="http://enigmatic-bastion-17314.herokuapp.com/">
+  <a href="https://enigmatic-bastion-17314.herokuapp.com/">
     pausebot
   </a>
 </h1>
