@@ -9,4 +9,8 @@
   A website for automated pausing of tiktok-videos.
 </p>
 
+<a href="https://github.com/emergenz/pausebot/CONTRIBUTING.md">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
+</a>
+
 
